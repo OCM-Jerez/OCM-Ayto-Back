@@ -1,10 +1,23 @@
 {
-    "type": "mysql",
-    "host": "localhost",
-    "port": 3306,
-    "username": "root",
-    "password": "mamtrucha0121",
-    "database": "ocm_lici",
-    "entities": ["dist/**/*.entity{.ts,.js}"],
-    "synchronize": true
-  }
+  "type": "mysql",
+  "host": "localhost",
+  "port": 3306,
+  "username": "root",
+  "password": "mamtrucha0121",
+  "database": "ocm_lici",
+  "entities": [
+    "C:\\Users\\pc\\Google Drive\\Angular\\ocm-lici-back\\dist\\**\\**\\*entity{.ts,.js}"
+  ],
+  "autoLoadEntities": true,
+  "migrationsRun": true,
+  "migrations": [
+    "C:\\Users\\pc\\Google Drive\\Angular\\ocm-lici-back\\dist\\migration\\**\\*{.ts,.js}"
+  ],
+  "migrationsTableName": "migrations_typeorm",
+  "cli": {
+    "migrationsDir": "src/migration"
+  },
+  "synchronize": false,
+  "logging": true,
+  "logger": "file"
+}

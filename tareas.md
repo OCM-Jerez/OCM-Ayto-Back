@@ -29,4 +29,9 @@ uso una estructura por componentes, tal como recomienda la documentación https:
 
 15.- Monta mySQL desde Docker 2:07
 
-16 .- 
+16.- Añade TypeORM al module 2:08
+
+17.- Crea entity 2:09
+
+18.- Usa swagger 2:27
+

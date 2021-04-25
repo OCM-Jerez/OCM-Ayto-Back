@@ -1,13 +1,20 @@
 import { NestFactory } from '@nestjs/core';
 import { Logger, ValidationPipe } from '@nestjs/common';
 
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-
 import { AppModule } from './app.module';
+import { initSwagger } from './app.swagger';
+import { ConfigService } from '@nestjs/config';
+import { SERVER_PORT } from './config/constants';
+import { generateTypeormConfigFile } from './scripts';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const logger = new Logger();
+  const logger = new Logger('Bootstrap');
+  const config = app.get(ConfigService);
+  const port = parseInt(config.get<string>(SERVER_PORT), 10) || 3000;
+
+  initSwagger(app);
+  generateTypeormConfigFile(config);
 
   app.useGlobalPipes(
     new ValidationPipe({
@@ -15,16 +22,7 @@ async function bootstrap() {
     }),
   );
 
-  const config = new DocumentBuilder()
-    .setTitle('Cats example')
-    .setDescription('The cats API description')
-    .setVersion('1.0')
-    .addTag('cats')
-    .build();
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
-
-  await app.listen(3000);
-  logger.log(`Servidor corriendo en port ${await app.getUrl()}`);
+  await app.listen(port);
+  logger.log(`Server is running at ${await app.getUrl()}`);
 }
 bootstrap();
