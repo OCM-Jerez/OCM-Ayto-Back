@@ -6,7 +6,7 @@ import {
   IsArray,
   IsOptional,
 } from 'class-validator';
-import { EnumToString } from '../../common/helper/enumToString';
+import { EnumToString } from '../../../common/helper/enumToString';
 import { enteTipo } from '../enum';
 export class CreateEnteDto {
   @IsString()

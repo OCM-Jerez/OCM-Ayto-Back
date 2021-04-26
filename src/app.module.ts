@@ -8,7 +8,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TYPEORM_CONFIG } from './config/constants';
 import databaseConfig from './config/database.config';
-import { EnteModule } from './ente/ente.module';
+import { EnteModule } from './entities/ente/ente.module';
 
 @Module({
   imports: [
