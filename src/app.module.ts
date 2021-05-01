@@ -9,6 +9,7 @@ import { AppService } from './app.service';
 import { TYPEORM_CONFIG } from './config/constants';
 import databaseConfig from './config/database.config';
 import { EnteModule } from './entities/ente/ente.module';
+import { LicitacionModule } from './licitacion/licitacion.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { EnteModule } from './entities/ente/ente.module';
       }),
     }),
        EnteModule,
+       LicitacionModule,
   ],
   controllers: [AppController],
   providers: [AppService],

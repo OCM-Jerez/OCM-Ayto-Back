@@ -21,24 +21,26 @@ export class Ente {
   tipo!: string;
 
   @Column({ type: 'varchar', length: 45 })
-  codeHacienda!: string;
+  createdBy: string;
 
-  
-//   @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
-//   createdAt: Date;
+  @Column({ type: 'varchar', length: 45 })
+  updatedBy: string;
 
-  // @UpdateDateColumn({ name: 'updated_at', type: 'timestamp' })
-  // updatedAt: Date;
+  @Column({ type: 'varchar', length: 45 })
+  updatedBy1: string;
 
-//   @ManyToOne(() => User, (user) => user.posts, { eager: true })
-//   @JoinColumn({ name: 'author' })
-//   author: User;
+  @Column({ type: 'varchar', length: 45 })
+  updatedBy2: string;
+
+  @Column({ type: 'varchar', length: 45 })
+  updatedBy3: string;
+
+  @Column({ type: 'varchar', length: 45 })
+  prueba: string;
+
+
+
 }
-
-
-
-
-
 
 // {
 //   "nombre": "ddd",

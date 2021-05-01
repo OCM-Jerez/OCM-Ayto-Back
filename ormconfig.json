@@ -6,7 +6,7 @@
   "password": "mamtrucha0121",
   "database": "ocm_lici",
   "entities": [
-    "C:\\Users\\pc\\Google Drive\\Angular\\ocm-lici-back\\dist\\**\\**\\*entity{.ts,.js}"
+    "C:\\Users\\pc\\Google Drive\\Angular\\ocm-lici-back\\dist\\**\\**\\*.entity{.ts,.js}"
   ],
   "autoLoadEntities": true,
   "migrationsRun": true,
@@ -17,7 +17,7 @@
   "cli": {
     "migrationsDir": "src/migration"
   },
-  "synchronize": false,
+  "synchronize": true,
   "logging": true,
   "logger": "file"
 }

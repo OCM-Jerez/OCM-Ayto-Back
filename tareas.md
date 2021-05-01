@@ -1,4 +1,6 @@
 1.- Me baso en https://www.youtube.com/watch?v=eL2tO9xPZLM&t=3039s
+https://github.com/ruslanguns/nestjs-myblog
+
 
 2.- En lugar de usar la estructura de OCM-soli-back que usar carpetas por funcionalidades ( module, service, repository....) 
 uso una estructura por componentes, tal como recomienda la documentación https://docs.nestjs.com/modules.
@@ -35,3 +37,5 @@ uso una estructura por componentes, tal como recomienda la documentación https:
 
 18.- Usa swagger 2:27
 
+https://www.youtube.com/watch?v=P2gvIQRXIuc
+En este video trata sobre migrations y deploy a Heroku.
