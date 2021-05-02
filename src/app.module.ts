@@ -8,9 +8,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TYPEORM_CONFIG } from './config/constants';
 import databaseConfig from './config/database.config';
-import { EnteModule } from './entities/ente/ente.module';
-import { LicitacionModule } from './entities/licitacion/licitacion.module';
-import { ProgramaModule } from './entities/programa/programa.module';
+// import { EnteModule } from './entities/ente/ente.module';
+// import { LicitacionModule } from './entities/licitacion/licitacion.module';
+// import { ProgramaModule } from './entities/programa/programa.module';
 
 @Module({
   imports: [
@@ -29,9 +29,9 @@ import { ProgramaModule } from './entities/programa/programa.module';
           .default('development')
       }),
     }),
-       EnteModule,
-       LicitacionModule,
-    ProgramaModule,
+      //  EnteModule,
+      //  LicitacionModule,
+    // ProgramaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
