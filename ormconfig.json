@@ -4,20 +4,20 @@
   "port": 3306,
   "username": "root",
   "password": "mamtrucha0121",
-  "database": "ocm_lici",
+  "database": "ayuntamiento",
   "entities": [
-    "C:\\Users\\pc\\Google Drive\\Angular\\ocm-lici-back\\dist\\**\\**\\*.entity{.ts,.js}"
+    "C:\\Users\\pc\\Google Drive\\Angular\\ocm-lici-back\\dist\\entities\\**\\*.entity{.ts,.js}"
   ],
   "autoLoadEntities": true,
   "migrationsRun": true,
   "migrations": [
-    "C:\\Users\\pc\\Google Drive\\Angular\\ocm-lici-back\\dist\\migration\\**\\*{.ts,.js}"
+    "C:\\Users\\pc\\Google Drive\\Angular\\ocm-lici-back\\dist\\migration\\*{.ts,.js}"
   ],
   "migrationsTableName": "migrations_typeorm",
   "cli": {
     "migrationsDir": "src/migration"
   },
-  "synchronize": true,
+  "synchronize": false,
   "logging": true,
   "logger": "file"
 }
