@@ -10,7 +10,9 @@ import {
 import { ProgramasService } from './programas.service';
 import { CreateProgramaDto } from './dto/create-programa.dto';
 import { UpdateProgramaDto } from './dto/update-programa.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('programas')
 @Controller('programas')
 export class ProgramasController {
   constructor(private readonly programasService: ProgramasService) {}
@@ -21,8 +23,11 @@ export class ProgramasController {
   }
 
   @Get()
-  findAll() {
-    return this.programasService.findAll();
+  // findAll() {
+  // return this.programasService.findAll();
+  async findAll() {
+    const data = await this.programasService.findAll();
+    return { data };
   }
 
   @Get(':id')

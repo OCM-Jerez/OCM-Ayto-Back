@@ -2,7 +2,7 @@
      * borrar y crear de nuevo squema usamdo MySQL Workbench.
      * Borrar todas las migration existentes.
      * Borrar /dist
-     * En database.config.ts
+     * En src/config/database.config.ts
        // Activar SOLO MANUALMENTE en DESARROLLO SI ES NECESARIO (DESACTIVAR EN PRODUCCION).
           synchronize: false,
 
@@ -15,3 +15,11 @@
      * https://docs.nestjs.com/recipes/crud-generator
      * cd src/entities
      * nest g resource users --no-spec
+     * añadir a app.module.ts
+     * 
+
+
+
+
+npm run start:dev
+localhost:3000/programas

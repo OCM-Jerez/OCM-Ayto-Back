@@ -1,6 +1,9 @@
 import { Injectable } from '@nestjs/common';
+import { getManager, getRepository } from 'typeorm';
 import { CreateProgramaDto } from './dto/create-programa.dto';
 import { UpdateProgramaDto } from './dto/update-programa.dto';
+import { ProgramaRepository } from './programa.repository';
+import { Programa } from './entities/programa.entity';
 
 @Injectable()
 export class ProgramasService {
@@ -8,8 +11,18 @@ export class ProgramasService {
     return 'This action adds a new programa';
   }
 
-  findAll() {
-    return `This action returns all programas`;
+  async findAll() {
+    // const entityManager = getManager();
+    // const rawData = await entityManager.query(`SELECT * FROM PROGRAMA`);
+    // return rawData;
+
+    const programaRepository = getRepository(Programa); // you can also get it via getConnection().getRepository() or getManager().getRepository()
+    const rawData = await programaRepository.find({
+      order: {
+        codPro: 'ASC',
+      },
+    });
+    return rawData;
   }
 
   findOne(id: number) {
@@ -23,4 +36,7 @@ export class ProgramasService {
   remove(id: number) {
     return `This action removes a #${id} programa`;
   }
+}
+function entityManager() {
+  throw new Error('Function not implemented.');
 }
