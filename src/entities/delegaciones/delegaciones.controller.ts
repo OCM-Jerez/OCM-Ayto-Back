@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { DelegacionesService } from './delegaciones.service';
 import { CreateDelegacioneDto } from './dto/create-delegacione.dto';
 import { UpdateDelegacioneDto } from './dto/update-delegacione.dto';
@@ -23,7 +31,10 @@ export class DelegacionesController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateDelegacioneDto: UpdateDelegacioneDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateDelegacioneDto: UpdateDelegacioneDto,
+  ) {
     return this.delegacionesService.update(+id, updateDelegacioneDto);
   }
 

@@ -1,15 +1,27 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { PresupuestoCapitulosService } from './presupuesto-capitulos.service';
 import { CreatePresupuestoCapituloDto } from './dto/create-presupuesto-capitulo.dto';
 import { UpdatePresupuestoCapituloDto } from './dto/update-presupuesto-capitulo.dto';
 
 @Controller('presupuesto-capitulos')
 export class PresupuestoCapitulosController {
-  constructor(private readonly presupuestoCapitulosService: PresupuestoCapitulosService) {}
+  constructor(
+    private readonly presupuestoCapitulosService: PresupuestoCapitulosService,
+  ) {}
 
   @Post()
   create(@Body() createPresupuestoCapituloDto: CreatePresupuestoCapituloDto) {
-    return this.presupuestoCapitulosService.create(createPresupuestoCapituloDto);
+    return this.presupuestoCapitulosService.create(
+      createPresupuestoCapituloDto,
+    );
   }
 
   @Get()
@@ -23,8 +35,14 @@ export class PresupuestoCapitulosController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePresupuestoCapituloDto: UpdatePresupuestoCapituloDto) {
-    return this.presupuestoCapitulosService.update(+id, updatePresupuestoCapituloDto);
+  update(
+    @Param('id') id: string,
+    @Body() updatePresupuestoCapituloDto: UpdatePresupuestoCapituloDto,
+  ) {
+    return this.presupuestoCapitulosService.update(
+      +id,
+      updatePresupuestoCapituloDto,
+    );
   }
 
   @Delete(':id')

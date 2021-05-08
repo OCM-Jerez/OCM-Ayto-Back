@@ -21,7 +21,7 @@ export abstract class BaseEntity {
 
   @Column({ nullable: true })
   lastModifiedBy?: string;
-  
+
   @CreateDateColumn({ nullable: true })
   lastModifiedDate?: Date;
 }

@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { SubvencionesService } from './subvenciones.service';
 import { CreateSubvencioneDto } from './dto/create-subvencione.dto';
 import { UpdateSubvencioneDto } from './dto/update-subvencione.dto';
@@ -23,7 +31,10 @@ export class SubvencionesController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateSubvencioneDto: UpdateSubvencioneDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateSubvencioneDto: UpdateSubvencioneDto,
+  ) {
     return this.subvencionesService.update(+id, updateSubvencioneDto);
   }
 

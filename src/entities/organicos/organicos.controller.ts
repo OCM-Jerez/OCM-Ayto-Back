@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { OrganicosService } from './organicos.service';
 import { CreateOrganicoDto } from './dto/create-organico.dto';
 import { UpdateOrganicoDto } from './dto/update-organico.dto';
@@ -23,7 +31,10 @@ export class OrganicosController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateOrganicoDto: UpdateOrganicoDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateOrganicoDto: UpdateOrganicoDto,
+  ) {
     return this.organicosService.update(+id, updateOrganicoDto);
   }
 

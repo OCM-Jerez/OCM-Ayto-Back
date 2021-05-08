@@ -1,9 +1,10 @@
 import { NestFactory } from '@nestjs/core';
 import { Logger, ValidationPipe } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+
+import { initSwagger } from './app.swagger';
 
 import { AppModule } from './app.module';
-import { initSwagger } from './app.swagger';
-import { ConfigService } from '@nestjs/config';
 import { SERVER_PORT } from './config/constants';
 import { generateTypeormConfigFile } from './scripts';
 
@@ -24,8 +25,8 @@ async function bootstrap() {
   );
 
   app.setGlobalPrefix('/api/v1');
-
   await app.listen(port);
   logger.log(`Server is running at ${await app.getUrl()}`);
 }
+
 bootstrap();

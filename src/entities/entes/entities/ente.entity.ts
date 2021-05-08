@@ -7,10 +7,11 @@ import {
   JoinColumn,
   UpdateDateColumn,
 } from 'typeorm';
-// import { User } from 'src/user/entities';
+import { BaseEntity } from '../../base/base.entity';
 
 @Entity('ente')
-export class Ente {
+@Entity('ente')
+export class Ente  extends BaseEntity {
   @PrimaryGeneratedColumn()
   ente_id: number;
 

@@ -6,12 +6,12 @@
   "password": "mamtrucha0121",
   "database": "ayuntamiento",
   "entities": [
-    "C:\\Users\\pc\\Google Drive\\Angular\\ocm-lici-back\\dist\\entities\\**\\*.entity{.ts,.js}"
+    "C:\\Users\\pc\\Google Drive\\Angular\\OCM-Ayto-Back\\dist\\entities\\**\\*.entity{.ts,.js}"
   ],
   "autoLoadEntities": true,
   "migrationsRun": true,
   "migrations": [
-    "C:\\Users\\pc\\Google Drive\\Angular\\ocm-lici-back\\dist\\migration\\*{.ts,.js}"
+    "C:\\Users\\pc\\Google Drive\\Angular\\OCM-Ayto-Back\\dist\\migration\\*{.ts,.js}"
   ],
   "migrationsTableName": "migrations_typeorm",
   "cli": {

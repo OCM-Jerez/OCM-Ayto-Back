@@ -16,7 +16,10 @@ export class PresupuestoModificacionesService {
     return `This action returns a #${id} presupuestoModificacione`;
   }
 
-  update(id: number, updatePresupuestoModificacioneDto: UpdatePresupuestoModificacioneDto) {
+  update(
+    id: number,
+    updatePresupuestoModificacioneDto: UpdatePresupuestoModificacioneDto,
+  ) {
     return `This action updates a #${id} presupuestoModificacione`;
   }
 

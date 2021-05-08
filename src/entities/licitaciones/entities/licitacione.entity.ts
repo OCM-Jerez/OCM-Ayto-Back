@@ -9,11 +9,12 @@ import {
   JoinColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { BaseEntity } from '../../base/base.entity';
 
 @Entity('licitacion')
-export class Licitacione {
-  @PrimaryGeneratedColumn()
-  ente_id: number;
+export class Licitacione extends BaseEntity {
+  // @PrimaryGeneratedColumn()
+  // ente_id: number;
 
   @Column({ type: 'varchar', length: 45, nullable: false })
   nombre!: string;
