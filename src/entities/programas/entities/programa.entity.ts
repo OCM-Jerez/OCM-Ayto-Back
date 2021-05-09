@@ -15,13 +15,13 @@ export class Programa extends BaseEntity {
   @Column({ type: 'varchar', length: 255, nullable: true })
   WebOCM!: string;
 
-  @Column({ type: 'varchar', length: 4, nullable: true  })
-  Created!: Date;
+  @Column({ nullable: true })
+  proCreatedDate: Date;
 
-  @Column({ type: 'varchar', length: 4, nullable: true  })
-  Deleted: Date;
+  @Column({ nullable: true })
+  proDeletedDate: Date;
 
-  @Column({ type: 'varchar', length: 255, nullable: true  })
+  @Column({ type: 'varchar', length: 255, nullable: true })
   uso: string;
 
   @Column({ type: 'varchar', length: 255, nullable: true })
@@ -29,6 +29,4 @@ export class Programa extends BaseEntity {
 
   @Column({ type: 'varchar', length: 10, nullable: true })
   codOrg!: string;
-
 }
-

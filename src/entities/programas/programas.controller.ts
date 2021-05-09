@@ -7,10 +7,10 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { ProgramasService } from './programas.service';
-import { CreateProgramaDto } from './dto/create-programa.dto';
-import { UpdateProgramaDto } from './dto/update-programa.dto';
 import { ApiTags } from '@nestjs/swagger';
+
+import { CreateProgramaDto, UpdateProgramaDto } from './dto';
+import { ProgramasService } from './programas.service';
 
 @ApiTags('programas')
 @Controller('programas')

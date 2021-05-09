@@ -9,10 +9,15 @@
        // Activar SOLO MANUALMENTE en DESARROLLO SI ES NECESARIO (DESACTIVAR EN PRODUCCION).
           synchronize: false,
 
+       A partir del 09/05/2021 tengo que  cambiar tambien, de lo contrario daba error.
+        migrationsRun: false,   
+
      * npm run start:dev
+     * Swagger si refleja los cambios en los DTO.
      * La bbdd no se actualiza hasta que se se haga lo siguiente:
      * En otra terminal:
      * npm run db:migration:generate inicio
+     * npm run db:migration:run  
 
 L
 
@@ -21,7 +26,16 @@ L
      * https://docs.nestjs.com/recipes/crud-generator
      * cd src/entities
      * nest g resource users --no-spec
-     * añadir a app.module.ts
+     * Añadir codigo que no crea automaticamente en entity:
+     * Usar class validator.
+     * Usar progrma.entity como ejemplo más avanzado.
+
+
+import { Entity, Column } from 'typeorm';
+import { BaseEntity } from '../../base/base.entity';
+
+@Entity('organico')
+export class Organico extends BaseEntity {}
      * 
 
 
@@ -29,3 +43,4 @@ L
 
 npm run start:dev
 localhost:3000/api/v1/programas
+http://localhost:3000/docs/

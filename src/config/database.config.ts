@@ -12,14 +12,13 @@ function typeormModuleOptions(): TypeOrmModuleOptions {
     database: process.env.DATABASE_NAME,
     // entities: [join(__dirname, '../**/**/*.entity{.ts,.js}')],
     entities: [join(__dirname, '../entities/**/*.entity{.ts,.js}')],
-
     autoLoadEntities: true,
 
     // Implementaremos Migrations.
     /** Recursos
      *  * https://typeorm.io/#/migrations
      */
-    migrationsRun: true,
+    migrationsRun: false,
     // migrations: [join(__dirname, '../migration/**/*{.ts,.js}')],
     migrations: [join(__dirname, '../migration/*{.ts,.js}')],
 

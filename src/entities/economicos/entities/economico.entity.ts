@@ -6,7 +6,7 @@ import { BaseEntity } from '../../base/base.entity';
 @Entity('economico')
 export class Economico extends BaseEntity {
   @Column({ type: 'varchar', length: 10, nullable: false })
-  codPro!: string;
+  codEco!: string;
 
   @Column({ type: 'varchar', length: 255, nullable: true })
   descripcionAyto!: string;
@@ -18,10 +18,10 @@ export class Economico extends BaseEntity {
   WebOCM!: string;
 
   @Column({ type: 'varchar', length: 4, nullable: true  })
-  Created!: Date;
+  ecoCreatedDate: Date;
 
   @Column({ type: 'varchar', length: 4, nullable: true  })
-  Deleted: Date;
+  ecoDeletedDate: Date;
 
   @Column({ type: 'varchar', length: 255, nullable: true  })
   uso: string;

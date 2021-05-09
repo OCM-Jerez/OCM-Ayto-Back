@@ -11,8 +11,10 @@ import { enteTipo } from '../enum';
 export class CreateEnteDto {
   @IsString()
   nombre: string;
+
   @IsString()
   codeHacienda: string;
+  
   @IsEnum(enteTipo, {
     message: `Tipo no valido. Los tipos validos son: ${EnumToString(enteTipo)}`,
   })
