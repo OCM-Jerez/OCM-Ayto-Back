@@ -4,16 +4,16 @@ import { BaseEntity } from '../../base/base.entity';
 @Entity('programa')
 export class Programa extends BaseEntity {
   @Column({ type: 'varchar', length: 10, nullable: false })
-  codPro!: string;
+  codPro: string;
 
   @Column({ type: 'varchar', length: 255, nullable: true })
-  descripcionAyto!: string;
+  descripcionAyto: string;
 
   @Column({ type: 'varchar', length: 255, nullable: false })
-  descripcionOCM!: string;
+  descripcionOCM: string;
 
   @Column({ type: 'varchar', length: 255, nullable: true })
-  WebOCM!: string;
+  WebOCM: string;
 
   @Column({ nullable: true })
   proCreatedDate: Date;
@@ -28,5 +28,5 @@ export class Programa extends BaseEntity {
   observaciones: string;
 
   @Column({ type: 'varchar', length: 10, nullable: true })
-  codOrg!: string;
+  codOrg: string;
 }

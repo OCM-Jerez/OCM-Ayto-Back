@@ -1,6 +1,3 @@
-// Mapped types
-// https://docs.nestjs.com/openapi/mapped-types?fbclid=IwAR2lfZslP5p624l5vOFn4JzHM3hNJFDoQkgimSWbhXNljM9HJQLHvaYIQzE
-
 /* 
  CLI Plugin
 Usando este plugin no hace falta usar  @ApiProperty() en  cada campo
@@ -15,11 +12,15 @@ https://docs.nestjs.com/techniques/validation
 https://github.com/typestack/class-validator#validation-decorators
 */
 
-import { IsNotEmpty, IsString, IsDate } from 'class-validator';
+import { IsNotEmpty, IsString, IsDate, IsDateString } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
+
 export class CreateProgramaDto {
-  // Estos campos lo hereda de base.entity, pero es necesario añadirlos al DTO.
-  @IsString()
-  id: string;
+  // Estos campos los hereda de base.entity, pero es necesario añadirlos al DTO.
+  
+  // El id lo genera automaticamente.
+  // @IsString()
+  // id: string;
 
   @IsString()
   createdBy: string;
@@ -28,7 +29,7 @@ export class CreateProgramaDto {
   @IsString()
   lastModifiedBy: string;
 
-  //   @ApiProperty()
+  // @ApiProperty()
   @IsNotEmpty()
   @IsString()
   codPro: string;
@@ -43,12 +44,27 @@ export class CreateProgramaDto {
   @IsString()
   WebOCM: string;
 
-  @IsDate()
+  @ApiProperty({
+    description:
+      'Fecha en la que se incorpora este programa a la contabilidad del Ayuntamiento',
+    required: false,
+  })
+  // Con @IsDate da error.
+  @IsDateString()	
   proCreatedDate: Date;
 
-  @IsDate()
+  @ApiProperty({
+    description:
+      'Fecha en la que se elimina este programa de la contabilidad del Ayuntamiento',
+    required: false,
+  })
+  @IsDateString()
   proDeletedDate: Date;
 
+  @ApiProperty({
+    description: 'Ampliación información del uso de programa',
+    required: false,
+  })
   @IsString()
   uso: string;
 

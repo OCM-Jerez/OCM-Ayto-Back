@@ -15,7 +15,6 @@ async function bootstrap() {
   const config = app.get(ConfigService);
   const port = parseInt(config.get<string>(SERVER_PORT), 10) || 3000;
 
-  initSwagger(app);
   generateTypeormConfigFile(config);
 
   app.useGlobalPipes(
@@ -25,6 +24,8 @@ async function bootstrap() {
   );
 
   app.setGlobalPrefix('/api/v1');
+  initSwagger(app);
+
   await app.listen(port);
   logger.log(`Server is running at ${await app.getUrl()}`);
 }

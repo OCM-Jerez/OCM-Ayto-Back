@@ -3,8 +3,9 @@ import { INestApplication } from '@nestjs/common';
 
 export const initSwagger = (app: INestApplication) => {
   const swaggerConfig = new DocumentBuilder()
-    .setTitle('OCM_lici API')
+    .setTitle('OCM_Ayto API')
     .addBearerAuth()
+    // .setBasePath('/api/v1')
     .setDescription(
       'Tablas relacionadas con el funcinamiento del Ayuntamiento de Jerez',
     )
