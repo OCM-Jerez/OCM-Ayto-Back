@@ -11,7 +11,6 @@ import { UpdateProgramaDto } from './dto/update-programa.dto';
 import { Programa } from './entities/programa.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { LoggingInterceptor } from '../../interceptors/logging.interceptor';
-import { any } from 'joi';
 
 @Injectable()
 @UseInterceptors(LoggingInterceptor)
@@ -22,8 +21,18 @@ export class ProgramasService {
     private readonly programaRepository: Repository<Programa>,
   ) {}
 
-  create(createProgramaDto: CreateProgramaDto) {
-    return this.programaRepository.save(createProgramaDto);
+  async create(createProgramaDto: CreateProgramaDto): Promise<Programa> {
+    try {
+      const temp = await this.programaRepository.save(createProgramaDto);
+      console.log('Respuesta create', temp);
+      if (temp.id.length < 32) {
+        throw new NotFoundException('El registro NO se ha creado');
+      }
+      return this.programaRepository.save(createProgramaDto);
+    } catch (error) {
+      console.log('error en service', error.response);
+      // return Null;
+    }
   }
 
   // this.programaRepository.
@@ -38,8 +47,11 @@ export class ProgramasService {
 
   async findOne(id: string) {
     const programa = await this.programaRepository.findOne(id);
-    console.log(programa);
-    if (!programa) throw new NotFoundException('El programa no existe');
+    if (!programa) {
+      console.log('El programa no existe');
+      throw new NotFoundException('El programa no existe')
+    };
+    console.log('Respondo con el programa');
     return programa;
   }
 
@@ -58,8 +70,41 @@ export class ProgramasService {
   //   return await this.programaRepository.remove(programa);
   // }
 
-  async delete(id: string) {
-    return await this.programaRepository.delete(id);
+  // async delete(id: string) {
+  //   return await this.programaRepository.delete(id);
+  // }
+
+  async delete(id: string): Promise<number> {
+    // try {
+    //   const DeleteResult = await this.programaRepository.delete(id);
+    //   // console.log(DeleteResult);
+    //   if (DeleteResult.affected === 0) {
+    //     throw new NotFoundException('El registro No se ha borrado');
+    //   }
+    // } catch (err) {
+    //   console.log(err.response);
+    // } finally {
+    //   return DeleteResult.affected;
+    // }
+
+    try {
+      const DeleteResult = await this.programaRepository.delete(id);
+      // console.log(DeleteResult);
+      if (DeleteResult.affected === 0) {
+        throw new NotFoundException('El registro No se ha borrado');
+      }
+      return DeleteResult.affected;
+    } catch (error) {
+      console.log('error en service', error.response);
+      return 0;
+    }
+
+    // const DeleteResult = await this.programaRepository.delete(id);
+    // console.log(DeleteResult);
+    // if (DeleteResult.affected === 0) {
+    //   throw new NotFoundException('El registro No se ha borrado');
+    // }
+    // return DeleteResult.affected;
   }
 
   // async getById(id: string) {

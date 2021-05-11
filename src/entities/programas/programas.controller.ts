@@ -21,19 +21,16 @@ import { LoggingInterceptor } from '../../interceptors/logging.interceptor';
 
 export class ProgramasController {
   logger = new Logger('ProgramasService');
-
   constructor(private readonly programasService: ProgramasService) {}
 
   @Post()
-  create(@Body() createProgramaDto: CreateProgramaDto) {
-    return this.programasService.create(createProgramaDto);
+  async create(@Body() createProgramaDto: CreateProgramaDto) {
+    return await this.programasService.create(createProgramaDto);
   }
 
   @Get()
-  // findAll() {
-  // return this.programasService.findAll();
   async find() {
-   return await this.programasService.find();
+    return await this.programasService.find();
   }
 
   @Get(':id')
@@ -48,11 +45,6 @@ export class ProgramasController {
   ) {
     return await this.programasService.update(id, updateProgramaDto);
   }
-
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   return this.programasService.remove(id);
-  // }
 
   @Delete(':id')
   async delete(@Param('id') id: string) {
