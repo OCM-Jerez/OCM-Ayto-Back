@@ -20,8 +20,8 @@ import { LoggingInterceptor } from '../../interceptors/logging.interceptor';
 @UseInterceptors(LoggingInterceptor)
 
 export class ProgramasController {
-  logger = new Logger('ProgramasService');
-  constructor(private readonly programasService: ProgramasService) {}
+  logger = new Logger('ProgramasControler');
+  constructor(private readonly programasService: ProgramasService) { }
 
   @Post()
   async create(@Body() createProgramaDto: CreateProgramaDto) {
@@ -38,6 +38,7 @@ export class ProgramasController {
     return await this.programasService.findOne(id);
   }
 
+  // se puede utilizar @Put
   @Patch(':id')
   async update(
     @Param('id') id: string,

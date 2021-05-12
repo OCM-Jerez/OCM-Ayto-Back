@@ -1,4 +1,4 @@
-/* 
+/*
  CLI Plugin
 Usando este plugin no hace falta usar  @ApiProperty() en  cada campo
 para que Swagger genere el DTO
@@ -12,37 +12,43 @@ https://docs.nestjs.com/techniques/validation
 https://github.com/typestack/class-validator#validation-decorators
 */
 
-import { IsNotEmpty, IsString, IsDate, IsDateString } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsString,
+  IsDate,
+  IsDateString,
+  IsUrl,
+} from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateProgramaDto {
   // Estos campos los hereda de base.entity, pero es necesario añadirlos al DTO.
-  
+
   // El id lo genera automaticamente.
   // @IsString()
   // id: string;
 
   @IsString()
-  createdBy: string;
+  readonly createdBy: string;
 
   @IsNotEmpty()
   @IsString()
-  lastModifiedBy: string;
+  readonly lastModifiedBy: string;
 
   // @ApiProperty()
   @IsNotEmpty()
   @IsString()
-  codPro: string;
+  readonly codPro: string;
 
   @IsString()
-  descripcionAyto: string;
+  readonly descripcionAyto: string;
 
   @IsNotEmpty()
   @IsString()
-  descripcionOCM: string;
+  readonly descripcionOCM: string;
 
-  @IsString()
-  WebOCM: string;
+  @IsUrl()
+  readonly WebOCM: string;
 
   @ApiProperty({
     description:
@@ -50,8 +56,8 @@ export class CreateProgramaDto {
     required: false,
   })
   // Con @IsDate da error.
-  @IsDateString()	
-  proCreatedDate: Date;
+  @IsDateString()
+  readonly proCreatedDate: Date;
 
   @ApiProperty({
     description:
@@ -59,18 +65,18 @@ export class CreateProgramaDto {
     required: false,
   })
   @IsDateString()
-  proDeletedDate: Date;
+  readonly proDeletedDate: Date;
 
   @ApiProperty({
     description: 'Ampliación información del uso de programa',
     required: false,
   })
   @IsString()
-  uso: string;
+  readonly uso: string;
 
   @IsString()
-  observaciones: string;
+  readonly observaciones: string;
 
   @IsString()
-  codOrg: string;
+  readonly codOrg: string;
 }

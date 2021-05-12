@@ -21,14 +21,14 @@ export class ProgramasService {
     private readonly programaRepository: Repository<Programa>,
   ) {}
 
-  async create(createProgramaDto: CreateProgramaDto): Promise<Programa> {
+  async create(payload: CreateProgramaDto): Promise<Programa> {
     try {
-      const temp = await this.programaRepository.save(createProgramaDto);
+      const temp = await this.programaRepository.save(payload);
       console.log('Respuesta create', temp);
       if (temp.id.length < 32) {
         throw new NotFoundException('El registro NO se ha creado');
       }
-      return this.programaRepository.save(createProgramaDto);
+      return this.programaRepository.save(payload);
     } catch (error) {
       console.log('error en service', error.response);
       // return Null;

@@ -1,0 +1,25 @@
+Curso básico:
+Clase 3 3:10 añade .editorconfig
+github con proyecto básico:
+https://github.com/platzi/fundamentos-nestjs
+
+Clase 7 crear endpoint con dos parametros.
+
+Clase 8 las rutas que no son dinamicas deben ir antes que las dinamicas.
+
+Clase 13 codigos de estado HTTP.
+https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/#h-handle-errors-gracefully-and-return-standard-error-codes
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+
+7.21 Usa res y response de Express
+
+14 concatena valores a un objeto que recibimos.
+
+17 ParseIntPipe
+
+21 whitelist
+================================================================
+
+
+Programación modular:
+
