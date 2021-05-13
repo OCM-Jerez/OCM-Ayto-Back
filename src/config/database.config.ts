@@ -20,10 +20,10 @@ function typeormModuleOptions(): TypeOrmModuleOptions {
      */
     migrationsRun: false,
     // migrations: [join(__dirname, '../migration/**/*{.ts,.js}')],
-    migrations: [join(__dirname, '../migration/*{.ts,.js}')],
+    migrations: [join(__dirname, '../database/migrations/*{.ts,.js}')],
     migrationsTableName: 'migrations_typeorm',
     cli: {
-      migrationsDir: 'src/migration',
+      migrationsDir: 'src/database/migrations',
     },
 
     // Activar SOLO MANUALMENTE en DESARROLLO SI ES NECESARIO (DESACTIVAR EN PRODUCCION).

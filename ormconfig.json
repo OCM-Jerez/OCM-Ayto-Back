@@ -11,11 +11,11 @@
   "autoLoadEntities": true,
   "migrationsRun": false,
   "migrations": [
-    "C:\\Users\\pc\\Google Drive\\Angular\\OCM-Ayto-Back\\dist\\migration\\*{.ts,.js}"
+    "C:\\Users\\pc\\Google Drive\\Angular\\OCM-Ayto-Back\\dist\\database\\migrations\\*{.ts,.js}"
   ],
   "migrationsTableName": "migrations_typeorm",
   "cli": {
-    "migrationsDir": "src/migration"
+    "migrationsDir": "src/database/migrations"
   },
   "synchronize": false,
   "logging": true,
