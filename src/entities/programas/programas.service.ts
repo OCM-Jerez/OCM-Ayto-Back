@@ -42,15 +42,17 @@ export class ProgramasService {
     // const rawData = await entityManager.query(`SELECT * FROM PROGRAMA`);
     // return rawData;
     // const programaRepository = getRepository(Programa); // you can also get it via getConnection().getRepository() or getManager().getRepository()
-    return await this.programaRepository.find({ order: { codPro: 'ASC' } });
+    return await this.programaRepository
+      .find({ order: { codPro: 'ASC' } })
+      .catch((err) => console.log(err));
   }
 
   async findOne(id: string) {
     const programa = await this.programaRepository.findOne(id);
     if (!programa) {
       console.log('El programa no existe');
-      throw new NotFoundException('El programa no existe')
-    };
+      throw new NotFoundException('El programa no existe');
+    }
     console.log('Respondo con el programa');
     return programa;
   }
