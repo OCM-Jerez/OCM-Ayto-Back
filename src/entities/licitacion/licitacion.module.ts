@@ -4,6 +4,6 @@ import { LicitacionController } from './licitacion.controller';
 
 @Module({
   controllers: [LicitacionController],
-  providers: [LicitacionService]
+  providers: [LicitacionService],
 })
 export class LicitacionModule {}

@@ -22,6 +22,7 @@ import { PresupuestosModule } from './presupuestos/presupuestos.module';
 import { ProgramasModule } from './programas/programas.module';
 import { SubvencionesModule } from './subvenciones/subvenciones.module';
 import { TemasModule } from './temas/temas.module';
+import { LicitacionesLoteModule } from './licitaciones-lotes/licitacione-lote.module';
 
 @Module({
   imports: [
@@ -47,6 +48,7 @@ import { TemasModule } from './temas/temas.module';
     ProgramasModule,
     SubvencionesModule,
     TemasModule,
+    LicitacionesLoteModule,
   ],
 })
 export class EntitiesModule {}

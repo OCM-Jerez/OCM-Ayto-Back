@@ -27,7 +27,7 @@ export class LicitacionesController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.licitacionesService.findOne(+id);
+    return this.licitacionesService.findOne(id);
   }
 
   @Patch(':id')

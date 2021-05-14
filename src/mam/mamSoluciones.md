@@ -28,7 +28,7 @@ L
      * nest g resource users --no-spec
      * Añadir codigo que no crea automaticamente en entity:
      * Usar class validator.
-     * Usar progrma.entity como ejemplo más avanzado.
+     * Usar programa.entity como ejemplo más avanzado.
 
 
 import { Entity, Column } from 'typeorm';
