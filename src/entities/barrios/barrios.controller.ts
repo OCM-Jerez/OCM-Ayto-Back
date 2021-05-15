@@ -3,15 +3,21 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
   Delete,
+  UseInterceptors,
+  Put,
 } from '@nestjs/common';
-import { BarriosService } from './barrios.service';
-import { CreateBarrioDto } from './dto/create-barrio.dto';
-import { UpdateBarrioDto } from './dto/update-barrio.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+import { BarriosService } from './barrios.service';
+import { CreateBarrioDto, UpdateBarrioDto } from './dto';
+import { LoggingInterceptor } from '../../interceptors/logging.interceptor';
+
+@ApiTags('barrios')
 @Controller('barrios')
+@UseInterceptors(LoggingInterceptor)
+
 export class BarriosController {
   constructor(private readonly barriosService: BarriosService) {}
 
@@ -27,16 +33,19 @@ export class BarriosController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.barriosService.findOne(+id);
+    return this.barriosService.findOne(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateBarrioDto: UpdateBarrioDto) {
-    return this.barriosService.update(+id, updateBarrioDto);
+  @Put(':id')
+  async update(
+    @Param('id') id: string,
+    @Body() updateProgramaDto: UpdateBarrioDto,
+  ) {
+    return await this.barriosService.update(id, updateProgramaDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.barriosService.remove(+id);
+    return this.barriosService.remove(id);
   }
 }

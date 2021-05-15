@@ -17,6 +17,7 @@
      * La bbdd no se actualiza hasta que se se haga lo siguiente:
      * En otra terminal:
      * npm run db:migration:generate inicio
+     * npm run db:migration:create modificacion
      * npm run db:migration:run  
 
 PARA QUE LOS dto FUNCIONEN TIENEN QUE TENER VALIDACIONES.
