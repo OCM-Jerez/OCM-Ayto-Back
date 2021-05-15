@@ -8,7 +8,6 @@ import { ContratosMenoresModule } from './contratos-menores/contratos-menores.mo
 import { DelegacionesModule } from './delegaciones/delegaciones.module';
 import { DeudaModule } from './deuda/deuda.module';
 import { EconomicosModule } from './economicos/economicos.module';
-import { EnteModule } from './ente/ente.module';
 import { EntesModule } from './entes/entes.module';
 import { HemerotecaModule } from './hemeroteca/hemeroteca.module';
 import { LegislacionModule } from './legislacion/legislacion.module';
@@ -35,7 +34,6 @@ import { TemasModule } from './temas/temas.module';
     DeudaModule,
     EconomicosModule,
     EntesModule,
-    EnteModule,
     HemerotecaModule,
     LegislacionModule,
     LicitacionesModule,
