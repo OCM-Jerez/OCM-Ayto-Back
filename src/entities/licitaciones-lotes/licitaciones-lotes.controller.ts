@@ -10,8 +10,8 @@ import {
 import { ApiTags } from '@nestjs/swagger';
 
 import { LicitacionesLotesService } from './licitaciones-lotes.service';
-import { CreateLicitacionesLoteDto } from './dto/create-licitaciones-lote.dto';
-import { UpdateLicitacionesLoteDto } from './dto/update-licitaciones-lote.dto';
+import { CreateLicitacionesLoteDto } from './dto';
+import { UpdateLicitacionesLoteDto } from './dto';
 import { LicitacionesLote } from './entities/licitaciones-lote.entity';
 
 @ApiTags('licitaciones-lotes')

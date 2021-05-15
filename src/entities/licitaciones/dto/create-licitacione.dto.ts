@@ -1,19 +1,19 @@
 import {
   IsNotEmpty,
   IsString,
-  IsDate,
   IsDateString,
   IsUrl,
   IsPositive,
   IsNumber,
 } from 'class-validator';
-// import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 
 import { BaseEntity } from '../../base/base.entity';
 
-
 export class CreateLicitacioneDto extends BaseEntity {
-  // @ApiProperty()
+  @ApiProperty({
+    default: '2021',
+  })
   @IsNotEmpty()
   @IsString()
   readonly year: string;
@@ -35,6 +35,7 @@ export class CreateLicitacioneDto extends BaseEntity {
 
   @IsNotEmpty()
   @IsNumber()
+  @IsPositive()
   readonly licitadoresPresentados: number;
 
   @IsNotEmpty()
@@ -47,18 +48,22 @@ export class CreateLicitacioneDto extends BaseEntity {
 
   @IsNotEmpty()
   @IsNumber()
+  @IsPositive()
   readonly presupuestoBase: number;
 
   @IsNotEmpty()
   @IsNumber()
+  @IsPositive()
   readonly valorEstimado: number;
 
   @IsNotEmpty()
   @IsNumber()
+  @IsPositive()
   readonly importeAdjudicacion: number;
 
   @IsNotEmpty()
   @IsNumber()
+  @IsPositive()
   readonly IVA: number;
 
   @IsNotEmpty()
@@ -67,6 +72,7 @@ export class CreateLicitacioneDto extends BaseEntity {
 
   @IsNotEmpty()
   @IsNumber()
+  @IsPositive()
   readonly codigoCPV: number;
 
   @IsNotEmpty()
@@ -77,10 +83,10 @@ export class CreateLicitacioneDto extends BaseEntity {
   @IsString()
   readonly resultado: string;
 
+  @ApiProperty({
+    default: 'ocmjerez.org',
+  })
   @IsNotEmpty()
-  @IsString()
+  @IsUrl()
   readonly URL: string;
-
-
-
 }

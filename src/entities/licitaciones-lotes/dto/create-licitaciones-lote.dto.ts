@@ -1,15 +1,13 @@
 import {
   IsNotEmpty,
   IsString,
-  IsDate,
   IsDateString,
-  IsUrl,
+  IsNumber,
   IsPositive,
 } from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
-
 export class CreateLicitacionesLoteDto {
   @IsNotEmpty()
+  @IsNumber()
   @IsPositive()
   readonly numero: number;
 
