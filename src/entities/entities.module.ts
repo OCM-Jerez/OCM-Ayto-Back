@@ -7,6 +7,7 @@ import { ComisionesModule } from './comisiones/comisiones.module';
 import { ContratosMenoresModule } from './contratos-menores/contratos-menores.module';
 import { DelegacionesModule } from './delegaciones/delegaciones.module';
 import { DeudaModule } from './deuda/deuda.module';
+import { DistritosModule } from './distritos/distritos.module';
 import { EconomicosModule } from './economicos/economicos.module';
 import { EntesModule } from './entes/entes.module';
 import { HemerotecaModule } from './hemeroteca/hemeroteca.module';
@@ -32,6 +33,7 @@ import { TemasModule } from './temas/temas.module';
     ContratosMenoresModule,
     DelegacionesModule,
     DeudaModule,
+    DistritosModule,
     EconomicosModule,
     EntesModule,
     HemerotecaModule,

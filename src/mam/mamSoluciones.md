@@ -27,6 +27,7 @@ PARA QUE LOS dto FUNCIONEN TIENEN QUE TENER VALIDACIONES.
      * https://docs.nestjs.com/recipes/crud-generator
      * cd src/entities
      * nest g resource users --no-spec
+     * añadir user.repository.ts (en singular)
      * Añadir codigo que no crea automaticamente en entity:
      * Usar class validator.
      * Usar programa.entity como ejemplo más avanzado.
