@@ -21,19 +21,21 @@ import {
 } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CreateProgramaDto {
+import { BaseEntity } from '../../base/base.entity';
+
+export class CreateProgramaDto extends BaseEntity {
   // Estos campos los hereda de base.entity, pero es necesario añadirlos al DTO.
 
   // El id lo genera automaticamente.
   // @IsString()
   // id: string;
 
-  @IsString()
-  readonly createdBy: string;
+  // @IsString()
+  // readonly createdBy: string;
 
-  @IsNotEmpty()
-  @IsString()
-  readonly lastModifiedBy: string;
+  // @IsNotEmpty()
+  // @IsString()
+  // readonly lastModifiedBy: string;
 
   // @ApiProperty()
   @IsNotEmpty()

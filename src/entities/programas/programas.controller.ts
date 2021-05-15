@@ -21,10 +21,11 @@ import { LoggingInterceptor } from '../../interceptors/logging.interceptor';
 
 export class ProgramasController {
   logger = new Logger('ProgramasControler');
-  constructor(private readonly programasService: ProgramasService) { }
+  constructor(private readonly programasService: ProgramasService) {}
 
   @Post()
   async create(@Body() createProgramaDto: CreateProgramaDto) {
+    console.log('createProgramaDto en Controller:', createProgramaDto);
     return await this.programasService.create(createProgramaDto);
   }
 

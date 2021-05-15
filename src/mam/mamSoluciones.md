@@ -19,7 +19,7 @@
      * npm run db:migration:generate inicio
      * npm run db:migration:run  
 
-L
+PARA QUE LOS dto FUNCIONEN TIENEN QUE TENER VALIDACIONES.
 
 
 2.- Generar CRUD

@@ -6,40 +6,50 @@ import {
   Patch,
   Param,
   Delete,
+  Logger,
+  UseInterceptors,
 } from '@nestjs/common';
-import { LicitacionesService } from './licitaciones.service';
-import { CreateLicitacioneDto } from './dto/create-licitacione.dto';
-import { UpdateLicitacioneDto } from './dto/update-licitacione.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+import { CreateLicitacioneDto, UpdateLicitacioneDto } from './dto';
+import { LicitacionesService } from './licitaciones.service';
+import { LoggingInterceptor } from '../../interceptors/logging.interceptor';
+
+@ApiTags('licitaciones')
 @Controller('licitaciones')
+@UseInterceptors(LoggingInterceptor)
+
 export class LicitacionesController {
+  logger = new Logger('LicitacionesControler');
   constructor(private readonly licitacionesService: LicitacionesService) {}
 
   @Post()
-  create(@Body() createLicitacioneDto: CreateLicitacioneDto) {
-    return this.licitacionesService.create(createLicitacioneDto);
+  async create(@Body() createLicitacioneDto: CreateLicitacioneDto) {
+    console.log('createLicitacioneDto en Controller:', createLicitacioneDto);
+    return await this.licitacionesService.create(createLicitacioneDto);
   }
 
   @Get()
-  findAll() {
-    return this.licitacionesService.findAll();
+  async findAll() {
+    return await this.licitacionesService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.licitacionesService.findOne(id);
+  async findOne(@Param('id') id: string) {
+    return await this.licitacionesService.findOne(id);
   }
 
+  // se puede utilizar @Put
   @Patch(':id')
-  update(
+  async update(
     @Param('id') id: string,
     @Body() updateLicitacioneDto: UpdateLicitacioneDto,
   ) {
-    return this.licitacionesService.update(+id, updateLicitacioneDto);
+    return await this.licitacionesService.update(+id, updateLicitacioneDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.licitacionesService.remove(+id);
+  async remove(@Param('id') id: string) {
+    return await this.licitacionesService.remove(+id);
   }
 }

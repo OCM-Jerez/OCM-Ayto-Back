@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+// import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { BarriosModule } from './barrios/barrios.module';
 import { BibliotecaModule } from './biblioteca/biblioteca.module';
@@ -13,6 +13,7 @@ import { EntesModule } from './entes/entes.module';
 import { HemerotecaModule } from './hemeroteca/hemeroteca.module';
 import { LegislacionModule } from './legislacion/legislacion.module';
 import { LicitacionesModule } from './licitaciones/licitaciones.module';
+import { LicitacionesLoteModule } from './licitaciones-lotes/licitacione-lote.module';
 import { OrganicosModule } from './organicos/organicos.module';
 import { OrganosContratacionModule } from './organos-contratacion/organos-contratacion.module';
 import { PmpModule } from './pmp/pmp.module';
@@ -22,7 +23,6 @@ import { PresupuestosModule } from './presupuestos/presupuestos.module';
 import { ProgramasModule } from './programas/programas.module';
 import { SubvencionesModule } from './subvenciones/subvenciones.module';
 import { TemasModule } from './temas/temas.module';
-import { LicitacionesLoteModule } from './licitaciones-lotes/licitacione-lote.module';
 
 @Module({
   imports: [
@@ -39,6 +39,7 @@ import { LicitacionesLoteModule } from './licitaciones-lotes/licitacione-lote.mo
     HemerotecaModule,
     LegislacionModule,
     LicitacionesModule,
+    LicitacionesLoteModule,
     OrganicosModule,
     OrganosContratacionModule,
     PmpModule,
@@ -48,7 +49,6 @@ import { LicitacionesLoteModule } from './licitaciones-lotes/licitacione-lote.mo
     ProgramasModule,
     SubvencionesModule,
     TemasModule,
-    LicitacionesLoteModule,
   ],
 })
 export class EntitiesModule {}

@@ -7,11 +7,14 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+
 import { LicitacionesLotesService } from './licitaciones-lotes.service';
 import { CreateLicitacionesLoteDto } from './dto/create-licitaciones-lote.dto';
 import { UpdateLicitacionesLoteDto } from './dto/update-licitaciones-lote.dto';
 import { LicitacionesLote } from './entities/licitaciones-lote.entity';
 
+@ApiTags('licitaciones-lotes')
 @Controller('licitaciones-lotes')
 export class LicitacionesLotesController {
   constructor(

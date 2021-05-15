@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
@@ -8,13 +8,26 @@ import { Licitacione } from './entities/licitacione.entity';
 
 @Injectable()
 export class LicitacionesService {
+  logger = new Logger('LicitacionesService');
   constructor(
     @InjectRepository(Licitacione)
     private readonly licitacioneRepository: Repository<Licitacione>,
   ) {}
 
-  create(createLicitacioneDto: CreateLicitacioneDto) {
-    return 'This action adds a new licitacione';
+  async create(
+    createLicitacioneDto: CreateLicitacioneDto,
+  ): Promise<Licitacione> {
+    // try {
+      console.log('createLicitacioneDto en Service:', createLicitacioneDto);
+      // const temp = await this.licitacioneRepository.save(createLicitacioneDto);
+      // if (temp.id.length < 32) {
+      //   throw new NotFoundException('El registro NO se ha creado');
+      // }
+      return this.licitacioneRepository.save(createLicitacioneDto);
+    // } catch (error) {
+    //   console.log('error en service', error.response);
+    //   // return Null;
+    // }
   }
 
   findAll() {
@@ -31,11 +44,11 @@ export class LicitacionesService {
     return licitacione;
   }
 
-  update(id: number, updateLicitacioneDto: UpdateLicitacioneDto) {
-    return `This action updates a #${id} licitacione`;
+  async update(id: number, updateLicitacioneDto: UpdateLicitacioneDto) {
+    return await `This action updates a #${id} licitacione`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} licitacione`;
+  async remove(id: number) {
+    return await  `This action removes a #${id} licitacione`;
   }
 }

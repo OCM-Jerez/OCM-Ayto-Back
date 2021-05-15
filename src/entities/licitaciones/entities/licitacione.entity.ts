@@ -1,21 +1,12 @@
 // export class Licitacione {}
 
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  CreateDateColumn,
-  ManyToOne,
-  JoinColumn,
-  UpdateDateColumn,
-  OneToMany,
-} from 'typeorm';
+import { Entity, Column } from 'typeorm';
 import { BaseEntity } from '../../base/base.entity';
 // import { LicitacionesLote } from '../licitaciones-lotes/entities/licitaciones-lote.entity';
 
 @Entity('licitacione')
 export class Licitacione extends BaseEntity {
-  @Column({ type: 'varchar', length: 4, nullable: false })
+  @Column({ type: 'varchar', length: 4, nullable: true })
   year: string;
 
   @Column({ type: 'varchar', length: 12, nullable: false })

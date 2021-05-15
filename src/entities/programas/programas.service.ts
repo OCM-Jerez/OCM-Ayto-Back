@@ -5,11 +5,11 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { getManager, getRepository, Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 
 import { CreateProgramaDto } from './dto/create-programa.dto';
 import { UpdateProgramaDto } from './dto/update-programa.dto';
 import { Programa } from './entities/programa.entity';
-import { InjectRepository } from '@nestjs/typeorm';
 import { LoggingInterceptor } from '../../interceptors/logging.interceptor';
 
 @Injectable()
@@ -22,17 +22,17 @@ export class ProgramasService {
   ) {}
 
   async create(payload: CreateProgramaDto): Promise<Programa> {
-    try {
-      const temp = await this.programaRepository.save(payload);
-      console.log('Respuesta create', temp);
-      if (temp.id.length < 32) {
-        throw new NotFoundException('El registro NO se ha creado');
-      }
+    // try {
+    //   const temp = await this.programaRepository.save(payload);
+    //   console.log('Respuesta create', temp);
+    //   if (temp.id.length < 32) {
+    //     throw new NotFoundException('El registro NO se ha creado');
+    //   }
       return this.programaRepository.save(payload);
-    } catch (error) {
-      console.log('error en service', error.response);
-      // return Null;
-    }
+    // } catch (error) {
+    //   console.log('error en service', error.response);
+    //   // return Null;
+    // }
   }
 
   // this.programaRepository.
