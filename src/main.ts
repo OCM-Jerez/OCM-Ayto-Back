@@ -7,7 +7,6 @@ import { initSwagger } from './app.swagger';
 import { AppModule } from './app.module';
 import { SERVER_PORT } from './config/constants';
 import { generateTypeormConfigFile } from './scripts';
-import { truncate } from 'node:fs';
 
 async function bootstrap() {
   const appOptions = { cors: true };
@@ -21,7 +20,7 @@ async function bootstrap() {
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true, // Si se envia algún campo que no existe lo ignora en el payload.
-      // forbidNonWhitelisted: true, Si se envia algún campo que no existe lanza error.
+      forbidNonWhitelisted: true, // Si se envia algún campo que no existe lanza error.
     }),
   );
 
