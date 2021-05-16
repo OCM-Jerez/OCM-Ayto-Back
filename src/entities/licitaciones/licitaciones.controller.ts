@@ -10,10 +10,10 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+import { LoggingInterceptor } from 'src/common/interceptors/logging.interceptor';
 
 import { CreateLicitacioneDto, UpdateLicitacioneDto } from './dto';
 import { LicitacionesService } from './licitaciones.service';
-import { LoggingInterceptor } from '../../interceptors/logging.interceptor';
 
 @ApiTags('licitaciones')
 @Controller('licitaciones')

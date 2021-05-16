@@ -9,10 +9,10 @@ import {
   Put,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+import { LoggingInterceptor } from 'src/common/interceptors/logging.interceptor';
 
 import { BarriosService } from './barrios.service';
 import { CreateBarrioDto, UpdateBarrioDto } from './dto';
-import { LoggingInterceptor } from '../../interceptors/logging.interceptor';
 
 @ApiTags('barrios')
 @Controller('barrios')

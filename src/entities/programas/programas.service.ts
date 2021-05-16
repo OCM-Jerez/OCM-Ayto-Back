@@ -44,6 +44,7 @@ export class ProgramasService {
 
   async delete(id: string): Promise<number> {
     const DeleteResult = await this.programaRepository.delete(id);
+    console.log(DeleteResult.affected);
     return DeleteResult.affected;
   }
 }
