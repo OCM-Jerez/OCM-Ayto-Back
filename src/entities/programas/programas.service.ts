@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable, NotFoundException, UseInterceptors } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -5,7 +6,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { CreateProgramaDto } from './dto/create-programa.dto';
 import { UpdateProgramaDto } from './dto/update-programa.dto';
 import { Programa } from './entities/programa.entity';
-import { LoggingInterceptor } from '../../interceptors/logging.interceptor';
+import { LoggingInterceptor } from 'src/common/interceptors/logging.interceptor';
 
 @Injectable()
 @UseInterceptors(LoggingInterceptor)

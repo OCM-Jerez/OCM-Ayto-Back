@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { EntityRepository, Repository } from 'typeorm';
 import { Programa } from './entities/programa.entity';
 

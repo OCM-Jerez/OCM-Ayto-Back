@@ -16,9 +16,9 @@ import { ApiTags } from '@nestjs/swagger';
 
 import { CreateProgramaDto, UpdateProgramaDto } from './dto';
 import { ProgramasService } from './programas.service';
-import { LoggingInterceptor } from '../../interceptors/logging.interceptor';
-import { HttpExceptionFilter } from 'src/common/http-exception.filter';
 import { Programa } from './entities/programa.entity';
+import { LoggingInterceptor } from 'src/common/interceptors/logging.interceptor';
+import { HttpExceptionFilter } from 'src/common/filters/http-exception.filter';
 
 @ApiTags('programas')
 @Controller('programas')
