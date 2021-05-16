@@ -3,29 +3,31 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
   Delete,
   Logger,
   UseInterceptors,
+  Put,
+  HttpException,
+  HttpStatus,
+  UseFilters,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
 import { CreateProgramaDto, UpdateProgramaDto } from './dto';
 import { ProgramasService } from './programas.service';
 import { LoggingInterceptor } from '../../interceptors/logging.interceptor';
+import { HttpExceptionFilter } from 'src/common/http-exception.filter';
 
 @ApiTags('programas')
 @Controller('programas')
 @UseInterceptors(LoggingInterceptor)
-
 export class ProgramasController {
   logger = new Logger('ProgramasControler');
   constructor(private readonly programasService: ProgramasService) {}
 
   @Post()
   async create(@Body() createProgramaDto: CreateProgramaDto) {
-    console.log('createProgramaDto en Controller:', createProgramaDto);
     return await this.programasService.create(createProgramaDto);
   }
 
@@ -39,8 +41,7 @@ export class ProgramasController {
     return await this.programasService.findOne(id);
   }
 
-  // se puede utilizar @Put
-  @Patch(':id')
+  @Put(':id')
   async update(
     @Param('id') id: string,
     @Body() updateProgramaDto: UpdateProgramaDto,
@@ -49,7 +50,19 @@ export class ProgramasController {
   }
 
   @Delete(':id')
+  @UseFilters(new HttpExceptionFilter())
   async delete(@Param('id') id: string) {
-    return await this.programasService.delete(id);
+    const rowDeleted = await this.programasService.delete(id);
+    if (rowDeleted == 0) {
+      throw new HttpException(
+        {
+          statusCode: HttpStatus.NOT_MODIFIED,
+          message: 'NO se ha borrado el registro',
+        },
+        HttpStatus.NOT_MODIFIED,
+      );
+    } else {
+      console.log('borrado');
+    }
   }
 }

@@ -1,10 +1,5 @@
-import {
-  Injectable,
-  Logger,
-  NotFoundException,
-  UseInterceptors,
-} from '@nestjs/common';
-import { getManager, getRepository, Repository } from 'typeorm';
+import { Injectable, NotFoundException, UseInterceptors } from '@nestjs/common';
+import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { CreateProgramaDto } from './dto/create-programa.dto';
@@ -15,33 +10,16 @@ import { LoggingInterceptor } from '../../interceptors/logging.interceptor';
 @Injectable()
 @UseInterceptors(LoggingInterceptor)
 export class ProgramasService {
-  logger = new Logger('ProgramasService');
   constructor(
     @InjectRepository(Programa)
     private readonly programaRepository: Repository<Programa>,
   ) {}
 
   async create(payload: CreateProgramaDto): Promise<Programa> {
-    // try {
-    //   const temp = await this.programaRepository.save(payload);
-    //   console.log('Respuesta create', temp);
-    //   if (temp.id.length < 32) {
-    //     throw new NotFoundException('El registro NO se ha creado');
-    //   }
-      return this.programaRepository.save(payload);
-    // } catch (error) {
-    //   console.log('error en service', error.response);
-    //   // return Null;
-    // }
+    return this.programaRepository.save(payload);
   }
 
-  // this.programaRepository.
-
   async find() {
-    // const entityManager = getManager();
-    // const rawData = await entityManager.query(`SELECT * FROM PROGRAMA`);
-    // return rawData;
-    // const programaRepository = getRepository(Programa); // you can also get it via getConnection().getRepository() or getManager().getRepository()
     return await this.programaRepository
       .find({ order: { codPro: 'ASC' } })
       .catch((err) => console.log(err));
@@ -57,64 +35,28 @@ export class ProgramasService {
     return programa;
   }
 
-  // async update(id: string, updateProgramaDto: UpdateProgramaDto) {
-  //   const programa = await this.getById(id);
-  //   const editedPrograma = Object.assign(programa, updateProgramaDto);
-  //   return await this.programaRepository.save(editedPrograma);
-  // }
-
   async update(id: string, updateProgramaDto: UpdateProgramaDto) {
     return await this.programaRepository.update(id, updateProgramaDto);
   }
 
-  // async remove(id: string) {
-  //   const programa = await this.getById(id);
-  //   return await this.programaRepository.remove(programa);
-  // }
-
-  // async delete(id: string) {
-  //   return await this.programaRepository.delete(id);
-  // }
-
   async delete(id: string): Promise<number> {
-    // try {
-    //   const DeleteResult = await this.programaRepository.delete(id);
-    //   // console.log(DeleteResult);
-    //   if (DeleteResult.affected === 0) {
-    //     throw new NotFoundException('El registro No se ha borrado');
-    //   }
-    // } catch (err) {
-    //   console.log(err.response);
-    // } finally {
-    //   return DeleteResult.affected;
-    // }
-
-    try {
-      const DeleteResult = await this.programaRepository.delete(id);
-      // console.log(DeleteResult);
-      if (DeleteResult.affected === 0) {
-        throw new NotFoundException('El registro No se ha borrado');
-      }
-      return DeleteResult.affected;
-    } catch (error) {
-      console.log('error en service', error.response);
-      return 0;
-    }
-
-    // const DeleteResult = await this.programaRepository.delete(id);
-    // console.log(DeleteResult);
-    // if (DeleteResult.affected === 0) {
-    //   throw new NotFoundException('El registro No se ha borrado');
-    // }
-    // return DeleteResult.affected;
+    const DeleteResult = await this.programaRepository.delete(id);
+    return DeleteResult.affected;
   }
+}
 
-  // async getById(id: string) {
-  //   const programa = await this.programaRepository.findOne(id);
-  //   if (!programa) throw new NotFoundException('El programa no existe');
-  //   return programa;
-  // }
-}
-function entityManager() {
-  // throw new Error('Function not implemented.');
-}
+
+/*
+Manejo de errores.
+     La documentacion de Nest aconseja usar:
+     https://docs.nestjs.com/exception-filters
+
+     Ejemplos de uso:
+     https://www.youtube.com/watch?v=XP_gONOksuM
+     https://www.youtube.com/watch?v=PdYCxDl4j0c
+     https://medium.com/swlh/filters-how-nest-js-handle-exceptions-c2e54cbc961a
+     https://jenijoe.medium.com/angular-crud-service-create-it-extend-it-d972d61fc400
+
+     Preferencia al declarar filter:
+     https://stackoverflow.com/questions/54727103/nestjs-how-to-pass-the-error-from-one-error-filter-to-another?fbclid=IwAR0OC_4XqxpNncs9vSVpaGKqKFHTbyNIoLvXMQ6wJSQmt6F3OkpF_x50DxE
+*/
