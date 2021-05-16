@@ -18,6 +18,7 @@ import { CreateProgramaDto, UpdateProgramaDto } from './dto';
 import { ProgramasService } from './programas.service';
 import { LoggingInterceptor } from '../../interceptors/logging.interceptor';
 import { HttpExceptionFilter } from 'src/common/http-exception.filter';
+import { Programa } from './entities/programa.entity';
 
 @ApiTags('programas')
 @Controller('programas')
@@ -32,7 +33,7 @@ export class ProgramasController {
   }
 
   @Get()
-  async find() {
+  async find(): Promise<void | Programa[]> {
     return await this.programasService.find();
   }
 

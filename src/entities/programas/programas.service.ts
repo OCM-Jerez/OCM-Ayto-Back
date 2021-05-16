@@ -19,7 +19,9 @@ export class ProgramasService {
     return this.programaRepository.save(payload);
   }
 
-  async find() {
+  // En el ejemplo de Nest tipa las respuestas como Promise.
+  // https://github.com/nestjs/nest/blob/f472852d441b7f66e52449e09f885ab57807bf96/sample/05-sql-typeorm/src/photo/photo.controller.ts
+  async find(): Promise<void | Programa[]> {
     return await this.programaRepository
       .find({ order: { codPro: 'ASC' } })
       .catch((err) => console.log(err));
@@ -44,7 +46,6 @@ export class ProgramasService {
     return DeleteResult.affected;
   }
 }
-
 
 /*
 Manejo de errores.
