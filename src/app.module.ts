@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, MiddlewareConsumer, RequestMethod  } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 // import { AccessControlModule } from 'nest-access-control';
@@ -6,6 +6,7 @@ import * as Joi from 'joi';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { AppMiddleware } from './common/middleware/app.middleware';
 import { TYPEORM_CONFIG } from './config/constants';
 import databaseConfig from './config/database.config';
 
@@ -32,4 +33,10 @@ import { EntitiesModule } from './entities/entities.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(AppMiddleware)
+      .forRoutes({ path: '*', method: RequestMethod.ALL });
+  }
+}
