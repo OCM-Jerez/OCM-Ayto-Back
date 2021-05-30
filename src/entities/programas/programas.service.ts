@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Injectable, NotFoundException, UseInterceptors } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, NotFoundException, UseInterceptors, Logger } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Request, Response } from 'express';
@@ -40,12 +40,19 @@ export class ProgramasService {
   }
 
   async update(id: string, updateProgramaDto: UpdateProgramaDto) {
-    return await this.programaRepository.update(id, updateProgramaDto);
+    const respond = await this.programaRepository.update(id, updateProgramaDto);
+    if(!respond){
+      throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
+    }
+
   }
 
   async delete(id: string): Promise<number> {
     const DeleteResult = await this.programaRepository.delete(id);
     // console.log(DeleteResult.affected);
+    if(!DeleteResult.affected){
+         throw new HttpException('No se ha borrado el registro.', HttpStatus.FORBIDDEN);
+    }
     return DeleteResult.affected;
   }
 
