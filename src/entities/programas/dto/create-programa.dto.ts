@@ -20,7 +20,6 @@ import {
   IsUrl,
 } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-
 import { BaseEntity } from '../../base/base.entity';
 
 export class CreateProgramaDto extends BaseEntity {

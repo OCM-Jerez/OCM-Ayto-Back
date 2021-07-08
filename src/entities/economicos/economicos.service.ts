@@ -1,26 +1,40 @@
 import { Injectable } from '@nestjs/common';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
+
 import { CreateEconomicoDto } from './dto/create-economico.dto';
 import { UpdateEconomicoDto } from './dto/update-economico.dto';
+import { Economico } from './entities/economico.entity';
+
 
 @Injectable()
 export class EconomicosService {
-  create(createEconomicoDto: CreateEconomicoDto) {
-    return 'This action adds a new economico';
+  constructor(
+    @InjectRepository(Economico)
+    private readonly economicoRepository: Repository<Economico>,
+  ) { }
+
+  // async create(CreateEconomicoDto: CreateEconomicoDto) {
+  //   return 'This action adds a new economico';
+  // }
+
+  async create(payload: CreateEconomicoDto): Promise<Economico> {
+    return await this.economicoRepository.save(payload);
   }
 
-  findAll() {
-    return `This action returns all economicos`;
+  async findAll(): Promise<void | Economico[]> {
+    return await this.economicoRepository.find({ order: { codEco: 'ASC' } });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} economico`;
+  async findOne(id: number) {
+    return await this.economicoRepository.findOne(id);
   }
 
-  update(id: number, updateEconomicoDto: UpdateEconomicoDto) {
-    return `This action updates a #${id} economico`;
+  async update(id: number, updateEconomicoDto: UpdateEconomicoDto) {
+    return await this.economicoRepository.update(id, updateEconomicoDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} economico`;
+  async remove(id: number) {
+    return await this.economicoRepository.delete(id);
   }
 }

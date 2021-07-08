@@ -51,4 +51,4 @@ import { TemasModule } from './temas/temas.module';
     TemasModule,
   ],
 })
-export class EntitiesModule {}
+export class EntitiesModule { }

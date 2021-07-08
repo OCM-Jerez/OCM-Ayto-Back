@@ -7,13 +7,16 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+
 import { EconomicosService } from './economicos.service';
 import { CreateEconomicoDto } from './dto/create-economico.dto';
 import { UpdateEconomicoDto } from './dto/update-economico.dto';
 
+@ApiTags('economicos')
 @Controller('economicos')
 export class EconomicosController {
-  constructor(private readonly economicosService: EconomicosService) {}
+  constructor(private readonly economicosService: EconomicosService) { }
 
   @Post()
   create(@Body() createEconomicoDto: CreateEconomicoDto) {

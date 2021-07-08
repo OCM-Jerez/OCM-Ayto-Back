@@ -10,7 +10,6 @@ Se dijo de importarlo desde aqui en el video de Ruslan.
 
 // import { PartialType } from '@nestjs/swagger';
 import { PartialType } from '@nestjs/mapped-types';
-
 import { CreateProgramaDto } from './create-programa.dto';
 
-export class UpdateProgramaDto extends PartialType(CreateProgramaDto) {}
+export class UpdateProgramaDto extends PartialType(CreateProgramaDto) { }

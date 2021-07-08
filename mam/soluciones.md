@@ -12,6 +12,7 @@
        A partir del 09/05/2021 tengo que  cambiar tambien, de lo contrario daba error.
         migrationsRun: false,   
 
+     * npm run build
      * npm run start:dev
      * Swagger si refleja los cambios en los DTO.
      * La bbdd no se actualiza hasta que se se haga lo siguiente:

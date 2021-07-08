@@ -1,4 +1,5 @@
-/* eslint-disable prettier/prettier */
+// https://docs.nestjs.com/exception-filters#exception-filters-1
+// https://docs.nestjs.com/fundamentals/execution-context
 import {
   ExceptionFilter,
   Catch,
@@ -12,8 +13,8 @@ export class HttpExceptionFilter implements ExceptionFilter {
   catch(exception: HttpException, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
     const request = ctx.getRequest<Request>();
-    const res: Response = ctx.getResponse();
-    // console.log(exception);
+    const response = ctx.getResponse<Response>();
+    const status = exception.getStatus();
 
     const errorResponse = {
       method: request.method,
@@ -21,20 +22,12 @@ export class HttpExceptionFilter implements ExceptionFilter {
       response: exception.getResponse(),
     };
 
-    const response = ctx.getResponse<Response>();
-    const status = exception.getStatus();
+    response.status(status).json({
+      statusCode: status,
+      timestamp: new Date().toISOString(),
+      path: request.url,
+    });
 
-    response
-    .status(status)
-      .json({
-        statusCode: status,
-        timestamp: new Date().toISOString(),
-        path: request.url,
-      });
-
-      Logger.error(JSON.stringify(errorResponse), '', 'ExceptionFilter', false);
-
-    }
-
-
+    Logger.error(JSON.stringify(errorResponse), '', 'ExceptionFilter', false);
+  }
 }

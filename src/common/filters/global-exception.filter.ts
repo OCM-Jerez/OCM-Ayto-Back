@@ -1,3 +1,6 @@
+// https://docs.nestjs.com/exception-filters#exception-filters-1
+// https://docs.nestjs.com/fundamentals/execution-context
+// http://draganatanasov.com/2019/06/24/handle-your-exceptions-by-using-global-exception-filter-in-a-nestjs-application/
 import {
   ArgumentsHost,
   Catch,
@@ -23,11 +26,12 @@ export class GlobalExceptionFilter implements ExceptionFilter {
     let message = (exception as any).message.message;
     let code = 'HttpException';
 
-    Logger.error(
-      message,
-      (exception as any).stack,
-      `${request.method} ${request.url}`,
-    );
+    // Logger.error(
+    //   message,
+    //   (exception as any).stack,
+    //   // `${request.method} ${request.url}`,
+    //   'GlobalExceptionFilter',
+    // );
 
     let status = HttpStatus.INTERNAL_SERVER_ERROR;
 
@@ -51,12 +55,19 @@ export class GlobalExceptionFilter implements ExceptionFilter {
         code = (exception as any).code;
         break;
       default:
+        console.log('default :', exception.constructor);
         status = HttpStatus.INTERNAL_SERVER_ERROR;
     }
 
     response
       .status(status)
       .json(GlobalResponseError(status, message, code, request));
+
+    Logger.error(
+      JSON.stringify(GlobalResponseError(status, message, code, request)),
+      '',
+      'GlobalExceptionFilter',
+      false,
+    );
   }
 }
-

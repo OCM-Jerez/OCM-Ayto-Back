@@ -34,9 +34,9 @@ import { EntitiesModule } from './entities/entities.module';
   providers: [AppService],
 })
 export class AppModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer
-      .apply(AppMiddleware)
-      .forRoutes({ path: '*', method: RequestMethod.ALL });
-  }
+  // configure(consumer: MiddlewareConsumer) {
+  //   consumer
+  //     .apply(AppMiddleware)
+  //     .forRoutes({ path: '*', method: RequestMethod.ALL });
+  // }
 }
