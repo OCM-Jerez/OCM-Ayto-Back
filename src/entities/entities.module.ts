@@ -25,6 +25,7 @@ import { SubvencionesModule } from './subvenciones/subvenciones.module';
 import { TemasModule } from './temas/temas.module';
 import { EcoIngresosModule } from './eco-ingresos/eco-ingresos.module';
 import { CapituloIngresoModule } from './capitulo-ingreso/capitulo-ingreso.module';
+import { CapituloGastoModule } from './capitulo-gasto/capitulo-gasto.module';
 
 @Module({
   imports: [
@@ -53,6 +54,7 @@ import { CapituloIngresoModule } from './capitulo-ingreso/capitulo-ingreso.modul
     TemasModule,
     EcoIngresosModule,
     CapituloIngresoModule,
+    CapituloGastoModule,
   ],
 })
 export class EntitiesModule { }
