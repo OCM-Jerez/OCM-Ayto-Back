@@ -7,10 +7,10 @@ import {
 import { ApiProperty } from '@nestjs/swagger';
 import { BaseEntity } from '../../base/base.entity';
 
-export class CreateEconomicoDto extends BaseEntity {
+export class CreateCapituloIngresoDto extends BaseEntity {
     @IsNotEmpty()
     @IsString()
-    readonly codEco: string;
+    readonly codCap: string;
 
     @IsString()
     readonly descripcionAyto: string;
@@ -29,7 +29,7 @@ export class CreateEconomicoDto extends BaseEntity {
     })
     // Con @IsDate da error.
     @IsDateString()
-    readonly ecoCreatedDate: Date;
+    readonly capCreatedDate: Date;
 
     @ApiProperty({
         description:
@@ -37,7 +37,7 @@ export class CreateEconomicoDto extends BaseEntity {
         required: false,
     })
     @IsDateString()
-    readonly ecoDeletedDate: Date;
+    readonly capDeletedDate: Date;
 
     @ApiProperty({
         description: 'Ampliación información del uso de programa',
@@ -49,3 +49,4 @@ export class CreateEconomicoDto extends BaseEntity {
     @IsString()
     readonly observaciones: string;
 }
+

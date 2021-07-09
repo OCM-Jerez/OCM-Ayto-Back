@@ -1,5 +1,3 @@
-// export class Economico {}
-
 import { Entity, Column } from 'typeorm';
 import { BaseEntity } from '../../base/base.entity';
 

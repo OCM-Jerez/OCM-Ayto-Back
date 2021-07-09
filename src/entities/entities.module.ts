@@ -23,6 +23,8 @@ import { PresupuestosModule } from './presupuestos/presupuestos.module';
 import { ProgramasModule } from './programas/programas.module';
 import { SubvencionesModule } from './subvenciones/subvenciones.module';
 import { TemasModule } from './temas/temas.module';
+import { EcoIngresosModule } from './eco-ingresos/eco-ingresos.module';
+import { CapituloIngresoModule } from './capitulo-ingreso/capitulo-ingreso.module';
 
 @Module({
   imports: [
@@ -49,6 +51,8 @@ import { TemasModule } from './temas/temas.module';
     ProgramasModule,
     SubvencionesModule,
     TemasModule,
+    EcoIngresosModule,
+    CapituloIngresoModule,
   ],
 })
 export class EntitiesModule { }

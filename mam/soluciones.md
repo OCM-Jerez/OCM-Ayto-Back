@@ -27,11 +27,11 @@ PARA QUE LOS dto FUNCIONEN TIENEN QUE TENER VALIDACIONES.
 2.- Generar CRUD
      * https://docs.nestjs.com/recipes/crud-generator
      * cd src/entities
-     * nest g resource users --no-spec
+     * nest g resource users --no-spec  (si no reconoce comando nest => npm install -g @nestjs/cli  )
      * añadir user.repository.ts (en singular)
      * Añadir codigo que no crea automaticamente en entity:
      * Usar class validator.
-     * Usar programa.entity como ejemplo más avanzado.
+     * Usar capitulo-ingreso.entity como ejemplo más avanzado.
 
 
 import { Entity, Column } from 'typeorm';

@@ -7,7 +7,7 @@ import {
 import { ApiProperty } from '@nestjs/swagger';
 import { BaseEntity } from '../../base/base.entity';
 
-export class CreateEconomicoDto extends BaseEntity {
+export class CreateEcoIngresoDto extends BaseEntity {
     @IsNotEmpty()
     @IsString()
     readonly codEco: string;
@@ -49,3 +49,4 @@ export class CreateEconomicoDto extends BaseEntity {
     @IsString()
     readonly observaciones: string;
 }
+
