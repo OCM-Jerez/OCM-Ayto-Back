@@ -2,7 +2,7 @@
 2.- Generar CRUD
 TODO EN SINGULAR
      * https://docs.nestjs.com/recipes/crud-generator
-     * cd src/entities
+     * Open new terminal en src/entities
      * nest g resource new --no-spec  (si no reconoce comando nest => npm install -g @nestjs/cli  )
      * añadir new.repository.ts (en singular)
      * Añadir codigo que no crea automaticamente en entity:
@@ -14,11 +14,6 @@ TODO EN SINGULAR
      * Comprobar que se recojen los cambios en SQL creado
      * npm run db:migration:run  
      *Comprobar que se ha creado la nueva tabla.
-
-     
-
-
-
 
 
 1.- Ante problemas en Migration:

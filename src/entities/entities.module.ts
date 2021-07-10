@@ -25,6 +25,7 @@ import { TemasModule } from './temas/temas.module';
 import { EcoIngresosModule } from './eco-ingresos/eco-ingresos.module';
 import { CapituloIngresoModule } from './capitulo-ingreso/capitulo-ingreso.module';
 import { CapituloGastoModule } from './capitulo-gasto/capitulo-gasto.module';
+import { DistritoModule } from './distrito/distrito.module';
 
 @Module({
   imports: [
@@ -53,6 +54,7 @@ import { CapituloGastoModule } from './capitulo-gasto/capitulo-gasto.module';
     EcoIngresosModule,
     CapituloIngresoModule,
     CapituloGastoModule,
+    DistritoModule,
   ],
 })
 export class EntitiesModule { }
