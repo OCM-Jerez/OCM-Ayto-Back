@@ -5,9 +5,8 @@ import { BarriosModule } from './barrios/barrios.module';
 import { BibliotecaModule } from './biblioteca/biblioteca.module';
 import { ComisionesModule } from './comisiones/comisiones.module';
 import { ContratosMenoresModule } from './contratos-menores/contratos-menores.module';
-import { DelegacionesModule } from './delegaciones/delegaciones.module';
+import { DelegacionModule } from './delegaciones/delegacion.module';
 import { DeudaModule } from './deuda/deuda.module';
-import { DistritosModule } from './distritos/distritos.module';
 import { EconomicosModule } from './economicos/economicos.module';
 import { EntesModule } from './entes/entes.module';
 import { HemerotecaModule } from './hemeroteca/hemeroteca.module';
@@ -34,9 +33,8 @@ import { CapituloGastoModule } from './capitulo-gasto/capitulo-gasto.module';
     BibliotecaModule,
     ComisionesModule,
     ContratosMenoresModule,
-    DelegacionesModule,
+    DelegacionModule,
     DeudaModule,
-    DistritosModule,
     EconomicosModule,
     EntesModule,
     HemerotecaModule,

@@ -1,15 +1,16 @@
 
 2.- Generar CRUD
+TODO EN SINGULAR
      * https://docs.nestjs.com/recipes/crud-generator
      * cd src/entities
-     * nest g resource users --no-spec  (si no reconoce comando nest => npm install -g @nestjs/cli  )
-     * añadir user.repository.ts (en singular)
+     * nest g resource new --no-spec  (si no reconoce comando nest => npm install -g @nestjs/cli  )
+     * añadir new.repository.ts (en singular)
      * Añadir codigo que no crea automaticamente en entity:
      * Usar class validator.
-     * Usar capitulo-gasto.entity como ejemplo más avanzado.
+     * Usar delegacion.entity como ejemplo más avanzado.
      * Swagger si refleja el nuevo CRUD.
 
-     * npm run db:migration:generate <fecha>
+     * npm run db:migration:generate <addNew>
      * Comprobar que se recojen los cambios en SQL creado
      * npm run db:migration:run  
      *Comprobar que se ha creado la nueva tabla.
@@ -44,7 +45,6 @@
      * npm run db:migration:run  
 
 PARA QUE LOS dto FUNCIONEN TIENEN QUE TENER VALIDACIONES.
-
 
 
 import { Entity, Column } from 'typeorm';
