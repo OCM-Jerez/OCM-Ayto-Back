@@ -1,17 +1,42 @@
+1.- Si borro alguna entity manualmente:
+     HAY QUE ELIMINARLA DE entities.module.ts
+     DROP RN LA BBDD.
 
 2.- Generar CRUD
 TODO EN SINGULAR
      * https://docs.nestjs.com/recipes/crud-generator
      * Open new terminal en src/entities
      * nest g resource new --no-spec  (si no reconoce comando nest => npm install -g @nestjs/cli  )
-     * añadir new.repository.ts (en singular)
-     * Añadir codigo que no crea automaticamente en entity:
-     * Usar class validator.
-     * Usar delegacion.entity como ejemplo más avanzado.
+     * Añadir new.repository.ts (en singular)
+     * Buscar y sustituir an miniscula y MAYUSCULA. 
+     * create-<new>.dto-ts
+          Buscar y sustituir en mayuscula. 
+          Comprobar los nombres de los campos de la BBDD.
+     * update-<new>.dto-ts   
+          No hacen falta cambios.
+     * <new>.entity.ts 
+          Copiar todo el codigo del modelo.
+          Buscar y sustituir en miniscula y MAYUSCULA. 
+          Comprobar los nombres de los campos de la BBDD.     
+    * <new>.controller.ts 
+          Copiar todo el codigo del modelo.
+          Buscar y sustituir en miniscula y MAYUSCULA. 
+     * <new>.module.ts 
+          Copiar todo el codigo del modelo.
+          Buscar y sustituir en miniscula y MAYUSCULA. 
+     * <new>.service.ts 
+          Copiar todo el codigo del modelo.
+          Buscar y sustituir en miniscula y MAYUSCULA. 
+   
      * Swagger si refleja el nuevo CRUD.
 
+     
      * npm run db:migration:generate <addNew>
      * Comprobar que se recojen los cambios en SQL creado
+        No se porque genera estas tablas además de ente.
+           await queryRunner.query("DROP TABLE `ecoIngreso`");
+           await queryRunner.query("DROP TABLE `capituloIngreso`");
+           await queryRunner.query("DROP TABLE `capituloGasto`");
      * npm run db:migration:run  
      *Comprobar que se ha creado la nueva tabla.
 

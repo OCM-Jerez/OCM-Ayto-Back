@@ -8,7 +8,6 @@ import { ContratosMenoresModule } from './contratos-menores/contratos-menores.mo
 import { DelegacionModule } from './delegaciones/delegacion.module';
 import { DeudaModule } from './deuda/deuda.module';
 import { EconomicosModule } from './economicos/economicos.module';
-import { EntesModule } from './entes/entes.module';
 import { HemerotecaModule } from './hemeroteca/hemeroteca.module';
 import { LegislacionModule } from './legislacion/legislacion.module';
 import { LicitacionesModule } from './licitaciones/licitaciones.module';
@@ -26,6 +25,7 @@ import { EcoIngresosModule } from './eco-ingresos/eco-ingresos.module';
 import { CapituloIngresoModule } from './capitulo-ingreso/capitulo-ingreso.module';
 import { CapituloGastoModule } from './capitulo-gasto/capitulo-gasto.module';
 import { DistritoModule } from './distrito/distrito.module';
+import { EnteModule } from './ente/ente.module';
 
 @Module({
   imports: [
@@ -37,7 +37,6 @@ import { DistritoModule } from './distrito/distrito.module';
     DelegacionModule,
     DeudaModule,
     EconomicosModule,
-    EntesModule,
     HemerotecaModule,
     LegislacionModule,
     LicitacionesModule,
@@ -55,6 +54,7 @@ import { DistritoModule } from './distrito/distrito.module';
     CapituloIngresoModule,
     CapituloGastoModule,
     DistritoModule,
+    EnteModule,
   ],
 })
 export class EntitiesModule { }
