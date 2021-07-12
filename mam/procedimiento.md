@@ -3,10 +3,10 @@
      DROP EN LA BBDD.
 
 2.- Generar CRUD
-TODO EN SINGULAR
+TODO EN SINGULAR. COMPUESTO = seccion-censal
      * https://docs.nestjs.com/recipes/crud-generator
      * Open new terminal en src/entities
-     * nest g resource new --no-spec  (si no reconoce comando nest => npm install -g @nestjs/cli  )
+     * nest g resource <new> --no-spec  (si no reconoce comando nest => npm install -g @nestjs/cli  )
 
      * Añadir new.repository.ts (en singular)
           Copiar fichero modelo.
@@ -30,6 +30,7 @@ TODO EN SINGULAR
      * <new>.entity.ts 
           Copiar todo el codigo del modelo.
           Buscar y sustituir en miniscula y MAYUSCULA. 
+          Compuesto = @Entity('seccionCensal')
           Comprobar los nombres de los campos de la BBDD.   
 
     * <new>.controller.ts 
@@ -45,7 +46,7 @@ TODO EN SINGULAR
           Buscar y sustituir en miniscula y MAYUSCULA. Nombres compuestos <organo-contratacion>
    
      * Swagger si refleja el nuevo CRUD.
-
+          http://localhost:3000/docs/
      
      * npm run db:migration:generate <addNew>
      * Comprobar que se recojen los cambios en SQL creado
