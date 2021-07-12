@@ -12,8 +12,7 @@ import { ApiTags } from '@nestjs/swagger';
 import { LoggingInterceptor } from 'src/common/interceptors/logging.interceptor';
 
 import { OrganoContratacionService } from './organo-contratacion.service';
-import { CreateOrganoContratacionDto } from './dto/create-organo-contratacion.dto';
-import { UpdateOrganoContratacionDto } from './dto/update-organo-contratacion.dto';
+import { CreateOrganoContratacionDto, UpdateOrganoContratacionDto } from './dto';
 
 @ApiTags('organoContratacion')
 @Controller('organoContratacion')

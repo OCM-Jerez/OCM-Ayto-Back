@@ -12,8 +12,7 @@ import { ApiTags } from '@nestjs/swagger';
 import { LoggingInterceptor } from 'src/common/interceptors/logging.interceptor';
 
 import { EnteService } from './ente.service';
-import { CreateEnteDto } from './dto/create-ente.dto';
-import { UpdateEnteDto } from './dto/update-ente.dto';
+import { CreateEnteDto, UpdateEnteDto } from './dto';
 
 @ApiTags('ente')
 @Controller('ente')

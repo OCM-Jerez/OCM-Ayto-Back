@@ -7,27 +7,39 @@ TODO EN SINGULAR
      * https://docs.nestjs.com/recipes/crud-generator
      * Open new terminal en src/entities
      * nest g resource new --no-spec  (si no reconoce comando nest => npm install -g @nestjs/cli  )
+
      * Añadir new.repository.ts (en singular)
           Copiar fichero modelo.
           Pegar fichero modelo en carpeta <new>.
           Renombar fichero copiado.
           Buscar y sustituir an miniscula y MAYUSCULA. Nombres compuestos <organo-contratacion>
+
      * create-<new>.dto-ts
           Copiar todo el codigo del modelo.
           Buscar y sustituir en MAYUSCULA. 
           Comprobar los nombres de los campos dque tendrá la BBDD.
+
      * update-<new>.dto-ts   
           No hacen falta cambios.
+
+     * Añadir index.ts en <new>/dto
+          Copiar fichero modelo.
+          Pegar fichero modelo en carpeta <new>.
+          Buscar y sustituir an miniscula. Nombres compuestos <organo-contratacion>
+
      * <new>.entity.ts 
           Copiar todo el codigo del modelo.
           Buscar y sustituir en miniscula y MAYUSCULA. 
-          Comprobar los nombres de los campos de la BBDD.     
+          Comprobar los nombres de los campos de la BBDD.   
+
     * <new>.controller.ts 
           Copiar todo el codigo del modelo.
           Buscar y sustituir en miniscula y MAYUSCULA. Nombres compuestos <organo-contratacion>
+
      * <new>.module.ts 
           Copiar todo el codigo del modelo.
           Buscar y sustituir en miniscula y MAYUSCULA. Nombres compuestos <organo-contratacion>
+
      * <new>.service.ts 
           Copiar todo el codigo del modelo.
           Buscar y sustituir en miniscula y MAYUSCULA. Nombres compuestos <organo-contratacion>
@@ -74,3 +86,7 @@ PARA QUE LOS dto FUNCIONEN TIENEN QUE TENER VALIDACIONES.
 
 Tablas para añadir.
      Consorcio.
+
+
+Ultimo creado: 
+     ente

@@ -3,8 +3,7 @@ import {
 } from '@nestjs/common';
 import { Repository } from 'typeorm';
 
-import { CreateEnteDto } from './dto/create-ente.dto';
-import { UpdateEnteDto } from './dto/update-ente.dto';
+import { CreateEnteDto, UpdateEnteDto } from './dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Ente } from './entities/ente.entity';
 
