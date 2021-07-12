@@ -1,6 +1,6 @@
 1.- Si borro alguna entity manualmente:
      HAY QUE ELIMINARLA DE entities.module.ts
-     DROP RN LA BBDD.
+     DROP EN LA BBDD.
 
 2.- Generar CRUD
 TODO EN SINGULAR
@@ -8,10 +8,14 @@ TODO EN SINGULAR
      * Open new terminal en src/entities
      * nest g resource new --no-spec  (si no reconoce comando nest => npm install -g @nestjs/cli  )
      * Añadir new.repository.ts (en singular)
-     * Buscar y sustituir an miniscula y MAYUSCULA. 
+          Copiar fichero modelo.
+          Pegar fichero modelo en carpeta <new>.
+          Renombar fichero copiado.
+          Buscar y sustituir an miniscula y MAYUSCULA. Nombres compuestos <organo-contratacion>
      * create-<new>.dto-ts
-          Buscar y sustituir en mayuscula. 
-          Comprobar los nombres de los campos de la BBDD.
+          Copiar todo el codigo del modelo.
+          Buscar y sustituir en MAYUSCULA. 
+          Comprobar los nombres de los campos dque tendrá la BBDD.
      * update-<new>.dto-ts   
           No hacen falta cambios.
      * <new>.entity.ts 
@@ -20,13 +24,13 @@ TODO EN SINGULAR
           Comprobar los nombres de los campos de la BBDD.     
     * <new>.controller.ts 
           Copiar todo el codigo del modelo.
-          Buscar y sustituir en miniscula y MAYUSCULA. 
+          Buscar y sustituir en miniscula y MAYUSCULA. Nombres compuestos <organo-contratacion>
      * <new>.module.ts 
           Copiar todo el codigo del modelo.
-          Buscar y sustituir en miniscula y MAYUSCULA. 
+          Buscar y sustituir en miniscula y MAYUSCULA. Nombres compuestos <organo-contratacion>
      * <new>.service.ts 
           Copiar todo el codigo del modelo.
-          Buscar y sustituir en miniscula y MAYUSCULA. 
+          Buscar y sustituir en miniscula y MAYUSCULA. Nombres compuestos <organo-contratacion>
    
      * Swagger si refleja el nuevo CRUD.
 
@@ -67,9 +71,6 @@ TODO EN SINGULAR
 PARA QUE LOS dto FUNCIONEN TIENEN QUE TENER VALIDACIONES.
 
 
-import { Entity, Column } from 'typeorm';
-import { BaseEntity } from '../../base/base.entity';
 
-@Entity('organico')
-export class Organico extends BaseEntity {}
-     * 
+Tablas para añadir.
+     Consorcio.

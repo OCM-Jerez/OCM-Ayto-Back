@@ -13,7 +13,6 @@ import { LegislacionModule } from './legislacion/legislacion.module';
 import { LicitacionesModule } from './licitaciones/licitaciones.module';
 import { LicitacionesLoteModule } from './licitaciones-lotes/licitacione-lote.module';
 import { OrganicosModule } from './organicos/organicos.module';
-import { OrganosContratacionModule } from './organos-contratacion/organos-contratacion.module';
 import { PmpModule } from './pmp/pmp.module';
 import { PresupuestoCapitulosModule } from './presupuesto-capitulos/presupuesto-capitulos.module';
 import { PresupuestoModificacionesModule } from './presupuesto-modificaciones/presupuesto-modificaciones.module';
@@ -26,6 +25,7 @@ import { CapituloIngresoModule } from './capitulo-ingreso/capitulo-ingreso.modul
 import { CapituloGastoModule } from './capitulo-gasto/capitulo-gasto.module';
 import { DistritoModule } from './distrito/distrito.module';
 import { EnteModule } from './ente/ente.module';
+import { OrganoContratacionModule } from './organo-contratacion/organo-contratacion.module';
 
 @Module({
   imports: [
@@ -42,7 +42,6 @@ import { EnteModule } from './ente/ente.module';
     LicitacionesModule,
     LicitacionesLoteModule,
     OrganicosModule,
-    OrganosContratacionModule,
     PmpModule,
     PresupuestoCapitulosModule,
     PresupuestoModificacionesModule,
@@ -55,6 +54,7 @@ import { EnteModule } from './ente/ente.module';
     CapituloGastoModule,
     DistritoModule,
     EnteModule,
+    OrganoContratacionModule,
   ],
 })
 export class EntitiesModule { }
