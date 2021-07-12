@@ -27,6 +27,7 @@ import { DistritoModule } from './distrito/distrito.module';
 import { EnteModule } from './ente/ente.module';
 import { OrganoContratacionModule } from './organo-contratacion/organo-contratacion.module';
 import { SeccionCensalModule } from './seccion-censal/seccion-censal.module';
+import { SindicatoModule } from './sindicato/sindicato.module';
 
 @Module({
   imports: [
@@ -57,6 +58,7 @@ import { SeccionCensalModule } from './seccion-censal/seccion-censal.module';
     EnteModule,
     OrganoContratacionModule,
     SeccionCensalModule,
+    SindicatoModule,
   ],
 })
 export class EntitiesModule { }
