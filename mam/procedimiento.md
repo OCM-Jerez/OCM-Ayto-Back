@@ -57,6 +57,11 @@ TODO EN SINGULAR. COMPUESTO = seccion-censal
      * npm run db:migration:run  
      *Comprobar que se ha creado la nueva tabla.
 
+     Se pueden gerar datos con DSchema para probar. Cambiar a 6 en lugar de qoo que tiene por defecto.
+
+
+****************************** FINALIZADO ***************************************************************************
+
 
 1.- Ante problemas en Migration:
      * borrar y crear de nuevo squema usamdo MySQL Workbench.
