@@ -39,3 +39,8 @@ uso una estructura por componentes, tal como recomienda la documentación https:
 
 https://www.youtube.com/watch?v=P2gvIQRXIuc
 En este video trata sobre migrations y deploy a Heroku.
+
+
+
+
+https://tecadmin.net/docker-compose-persistent-mysql-data/

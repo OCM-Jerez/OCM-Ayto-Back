@@ -1,0 +1,16 @@
+services:
+  db:
+    container_name: MySQL8.0.27
+    image: mysql:8.0.27
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ayuntamiento
+      MYSQL_USER: mam
+      MYSQL_PASSWORD: mam0121
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+volumes:
+  dbdata: null
