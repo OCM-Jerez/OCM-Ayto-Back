@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="presupuesto" id="Project_207a" database="MySql" >
+	<schema name="presupuesto" >
+		<table name="area_gasto" prior="politica_0" >
+			<column name="id" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="codigo" type="int" jt="4" mandatory="y" />
+			<column name="descripcion" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="observacion" type="varchar" length="100" jt="12" />
+			<index name="Pk_programa_id_2" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="articulo_ingreso" prior="organico_0" >
+			<column name="id" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="codigo" type="int" jt="4" mandatory="y" />
+			<column name="descripcion" type="varchar" length="100" jt="12" />
+			<column name="observacion" type="varchar" length="100" jt="12" />
+			<index name="Pk_organico_id_0" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="capitulo_gasto" prior="capitulo" >
+			<column name="id" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="codigo" type="int" jt="4" mandatory="y" />
+			<column name="descripcion" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="observacion" type="varchar" length="100" jt="12" />
+			<index name="Pk_capitulo-gasto_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="capitulo_ingreso" prior="capitulo" >
+			<column name="id" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="codigo" type="int" jt="4" mandatory="y" />
+			<column name="descripcion" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="observacion" type="varchar" length="100" jt="12" />
+			<index name="Pk_capitulo_ingreso_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="concepto_ingreso" prior="articulo_ingreso_0" >
+			<column name="id" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="codigo" type="int" jt="4" mandatory="y" />
+			<column name="descripcion" type="varchar" length="100" jt="12" />
+			<column name="observacion" type="varchar" length="100" jt="12" />
+			<index name="Pk_organico_id_1" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="economico_gasto" prior="economico" >
+			<column name="id" type="int" jt="4" mandatory="y" />
+			<column name="codigo" type="int" jt="4" mandatory="y" />
+			<column name="descripcion" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="observacion" type="varchar" length="100" jt="12" />
+			<index name="Pk_economico_id_0" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="economico_ingreso" prior="economico" >
+			<column name="id" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="codigo" type="int" jt="4" mandatory="y" />
+			<column name="descripcion" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="observacion" type="varchar" length="100" jt="12" />
+			<index name="Pk_economico_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="estado" prior="Tbl" >
+			<comment><![CDATA[1.- Presupuesto
+2.- Ejecucion
+3.- Liquidacion]]></comment>
+			<column name="id" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="codigo" type="int" jt="4" mandatory="y" />
+			<column name="descripcion" type="varchar" length="50" jt="12" mandatory="y" />
+			<column name="observacion" type="varchar" length="100" jt="12" />
+			<index name="Pk_estado_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="grupo_programa" prior="programa_0" >
+			<column name="id" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="codigo" type="int" jt="4" mandatory="y" />
+			<column name="descripcion" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="observacion" type="varchar" length="100" jt="12" />
+			<index name="Pk_programa_id_0" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="organico" prior="Tbl" >
+			<column name="id" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="codigo" type="int" jt="4" mandatory="y" />
+			<column name="descripcion" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="observacion" type="varchar" length="100" jt="12" />
+			<index name="Pk_organico_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="politica" prior="programa_0" >
+			<column name="id" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="codigo" type="int" jt="4" mandatory="y" />
+			<column name="descripcion" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="observacion" type="varchar" length="100" jt="12" />
+			<index name="Pk_programa_id_1" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="presupuesto_gasto" prior="presupuesto_ingreso_0" >
+			<column name="id" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="year" type="int" jt="4" mandatory="y" />
+			<column name="estado" type="int" jt="4" />
+			<column name="fecha" type="date" jt="91" mandatory="y" />
+			<column name="cod_organico" type="int" jt="4" mandatory="y" />
+			<column name="cod_programa" type="int" jt="4" mandatory="y" />
+			<column name="cod_capitulo_gasto" type="int" jt="4" mandatory="y" />
+			<column name="cod_economico_gasto" type="bigint" jt="-5" mandatory="y" />
+			<column name="inicial" type="bigint" length="9" jt="-5" mandatory="y" />
+			<column name="modificacion" type="bigint" jt="-5" mandatory="y" />
+			<column name="definitiva" type="bigint" jt="-5" mandatory="y" />
+			<column name="gasto_comprometido" type="int" jt="4" mandatory="y" />
+			<column name="obligacion_reconocida_neta" type="int" jt="4" />
+			<column name="pago" type="int" jt="4" mandatory="y" />
+			<column name="obligacion_pendiente_pago" type="int" jt="4" mandatory="y" />
+			<column name="remanente_credito" type="int" jt="4" mandatory="y" />
+			<column name="observacion" type="varchar" length="100" jt="12" />
+			<column name="fuente" type="varchar" length="100" jt="12" >
+				<comment><![CDATA[De donde proviene la información (Portal de Transparencia, consulta, grupo municipal.....)]]></comment>
+			</column>
+			<column name="ruta" type="varchar" length="250" jt="12" >
+				<comment><![CDATA[Ruta del fichero que contiene la información.]]></comment>
+			</column>
+			<index name="Pk_presupuesto_id_0" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<fk name="Fk_programa_0" to_schema="presupuesto" to_table="programa" delete_action="cascade" update_action="cascade" >
+				<fk_column name="cod_programa" pk="id" />
+			</fk>
+		</table>
+		<table name="presupuesto_ingreso" prior="presupuesto" >
+			<column name="id" type="int" jt="4" mandatory="y" />
+			<column name="year" type="int" jt="4" mandatory="y" />
+			<column name="estado" type="int" jt="4" mandatory="y" >
+				<comment><![CDATA[presupuesto
+ejecucion
+liquidacion]]></comment>
+			</column>
+			<column name="fecha" type="date" jt="91" mandatory="y" />
+			<column name="cod_capitulo_ingreso" prior="cod_capitulo_gasto" type="int" jt="4" mandatory="y" />
+			<column name="cod_economico_ingreso" prior="cod_economico_gasto" type="bigint" jt="-5" mandatory="y" />
+			<column name="inicial" type="bigint" length="9" jt="-5" mandatory="y" />
+			<column name="modificacion" prior="modificaciones" type="bigint" jt="-5" mandatory="y" />
+			<column name="definitiva" type="bigint" jt="-5" mandatory="y" />
+			<column name="derecho_reconocido" type="int" jt="4" mandatory="y" />
+			<column name="derecho_anulado" type="int" jt="4" mandatory="y" />
+			<column name="derecho_cancelado" type="int" jt="4" mandatory="y" />
+			<column name="derecho_reconocido_neto" type="int" jt="4" mandatory="y" />
+			<column name="recaudacion_neta" type="int" jt="4" />
+			<column name="derecho_pendiente_cobro" type="int" jt="4" mandatory="y" />
+			<column name="diferencia_prevision" type="int" jt="4" />
+			<column name="observacion" type="varchar" length="250" jt="12" />
+			<column name="fuente" type="varchar" length="100" jt="12" >
+				<comment><![CDATA[De donde proviene la información (Portal de Transparencia, consulta, grupo municipal.....)]]></comment>
+			</column>
+			<column name="ruta" type="varchar" length="250" jt="12" >
+				<comment><![CDATA[Ruta del fichero que contiene la información.]]></comment>
+			</column>
+			<index name="Pk_presupuesto_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="programa" prior="Tbl" >
+			<column name="id" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="codigo" type="int" jt="4" mandatory="y" />
+			<column name="descripcion" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="observacion" type="varchar" length="100" jt="12" />
+			<index name="Pk_programa_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+	</schema>
+	<layout name="presupuesto" id="Layout_218a" joined_routing="y" show_column_type="y" show_relation="columns" >
+		<entity schema="presupuesto" name="area_gasto" color="3986C1" x="1056" y="80" />
+		<entity schema="presupuesto" name="articulo_ingreso" color="3986C1" x="416" y="208" />
+		<entity schema="presupuesto" name="capitulo_gasto" color="BED3F4" x="1072" y="624" />
+		<entity schema="presupuesto" name="capitulo_ingreso" color="BED3F4" x="336" y="80" />
+		<entity schema="presupuesto" name="concepto_ingreso" color="3986C1" x="480" y="336" />
+		<entity schema="presupuesto" name="economico_gasto" color="BED3F4" x="1152" y="752" />
+		<entity schema="presupuesto" name="economico_ingreso" color="BED3F4" x="528" y="464" />
+		<entity schema="presupuesto" name="estado" color="C1D8EE" x="272" y="880" />
+		<entity schema="presupuesto" name="grupo_programa" color="3986C1" x="1248" y="336" />
+		<entity schema="presupuesto" name="organico" color="BED3F4" x="1072" y="912" />
+		<entity schema="presupuesto" name="politica" color="3986C1" x="1152" y="208" />
+		<entity schema="presupuesto" name="presupuesto_gasto" color="3986C1" x="800" y="320" />
+		<entity schema="presupuesto" name="presupuesto_ingreso" color="C7F4BE" x="48" y="192" />
+		<entity schema="presupuesto" name="programa" color="C7F4BE" x="1312" y="464" />
+		<group name="INGRESO" color="C4E0F9" >
+			<entity schema="presupuesto" name="presupuesto_ingreso" />
+			<entity schema="presupuesto" name="economico_ingreso" />
+			<entity schema="presupuesto" name="capitulo_ingreso" />
+			<entity schema="presupuesto" name="articulo_ingreso" />
+			<entity schema="presupuesto" name="concepto_ingreso" />
+		</group>
+		<group name="GASTO" color="C4E0F9" >
+			<entity schema="presupuesto" name="capitulo_gasto" />
+			<entity schema="presupuesto" name="economico_gasto" />
+			<entity schema="presupuesto" name="organico" />
+			<entity schema="presupuesto" name="presupuesto_gasto" />
+			<entity schema="presupuesto" name="programa" />
+			<entity schema="presupuesto" name="grupo_programa" />
+			<entity schema="presupuesto" name="politica" />
+			<entity schema="presupuesto" name="area_gasto" />
+		</group>
+	</layout>
+</project>
