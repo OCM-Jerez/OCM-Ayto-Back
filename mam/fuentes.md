@@ -1,4 +1,5 @@
-1.- Me baso en https://www.youtube.com/watch?v=eL2tO9xPZLM&t=3039s
+1.- Me baso en:
+ https://www.youtube.com/watch?v=eL2tO9xPZLM&t=3039s
 https://github.com/ruslanguns/nestjs-myblog
 
 
