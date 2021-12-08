@@ -57,7 +57,7 @@ export class CreateProgramaDto extends BaseEntity {
     required: false,
   })
   // Con @IsDate da error.
-  @IsDateString()
+  // @IsDateString()
   readonly proCreatedDate: Date;
 
   @ApiProperty({
@@ -65,7 +65,7 @@ export class CreateProgramaDto extends BaseEntity {
       'Fecha en la que se elimina este programa de la contabilidad del Ayuntamiento',
     required: false,
   })
-  @IsDateString()
+  // @IsDateString()
   readonly proDeletedDate: Date;
 
   @ApiProperty({
