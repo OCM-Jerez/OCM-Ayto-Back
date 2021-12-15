@@ -16,11 +16,12 @@ import { Programa } from './entities/programa.entity';
 @ApiTags('programas')
 @Controller('programas')
 export class ProgramasController {
-  constructor(private readonly programasService: ProgramasService) {}
+  constructor(private readonly programasService: ProgramasService) { }
 
   @Post()
-  async create(@Body() createProgramaDto: CreateProgramaDto) {
-    return await this.programasService.create(createProgramaDto);
+  async create(@Body() createProgramaDto: CreateProgramaDto): Promise<Programa[]> {
+    await this.programasService.create(createProgramaDto);
+    return await this.programasService.findAll();
   }
 
   @Get()
