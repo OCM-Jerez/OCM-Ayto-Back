@@ -5,8 +5,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { CreateProgramaDto } from './dto/create-programa.dto';
 import { UpdateProgramaDto } from './dto/update-programa.dto';
 import { Programa } from './entities/programa.entity';
-import { IResponsePrograma } from './interfaces/programas.interface';
-import { HttpExceptionFilter } from '../../common/filters/http-exception.filter';
 
 @Injectable()
 export class ProgramasService {
