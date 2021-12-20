@@ -25,7 +25,7 @@ export class ProgramasController {
   }
 
   @Get()
-  async find(): Promise<void | Programa[]> {
+  async findAll(): Promise<void | Programa[]> {
     return await this.programasService.findAll();
   }
 
@@ -39,11 +39,13 @@ export class ProgramasController {
     @Param('id') id: string,
     @Body() updateProgramaDto: UpdateProgramaDto,
   ) {
-    return await this.programasService.update(id, updateProgramaDto);
+    await this.programasService.update(id, updateProgramaDto);
+    return await this.programasService.findAll();
   }
 
   @Delete(':id')
   async delete(@Param('id') id: string) {
-    return await this.programasService.delete(id);
+    await this.programasService.delete(id);
+    return await this.programasService.findAll();
   }
 }
