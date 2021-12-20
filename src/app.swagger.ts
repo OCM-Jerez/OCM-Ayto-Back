@@ -7,7 +7,7 @@ export const initSwagger = (app: INestApplication) => {
     .addBearerAuth()
     // .setBasePath('/api/v1')
     .setDescription(
-      'Tablas relacionadas con el funcinamiento del Ayuntamiento de Jerez',
+      'Tablas relacionadas con el funcionamiento del Ayuntamiento de Jerez',
     )
     .build();
   const document = SwaggerModule.createDocument(app, swaggerConfig);
