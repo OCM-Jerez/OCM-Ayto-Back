@@ -48,7 +48,7 @@ export class CreateProgramaDto extends BaseEntity {
   @IsString()
   readonly descripcionOCM: string;
 
-  @IsUrl()
+  // @IsUrl()
   readonly WebOCM: string;
 
   @ApiProperty({
