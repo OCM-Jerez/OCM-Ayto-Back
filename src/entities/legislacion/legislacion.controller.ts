@@ -10,10 +10,12 @@ import {
 import { LegislacionService } from './legislacion.service';
 import { CreateLegislacionDto } from './dto/create-legislacion.dto';
 import { UpdateLegislacionDto } from './dto/update-legislacion.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('legislacion')
 @Controller('legislacion')
 export class LegislacionController {
-  constructor(private readonly legislacionService: LegislacionService) {}
+  constructor(private readonly legislacionService: LegislacionService) { }
 
   @Post()
   create(@Body() createLegislacionDto: CreateLegislacionDto) {

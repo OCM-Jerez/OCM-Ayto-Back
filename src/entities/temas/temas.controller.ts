@@ -2,10 +2,12 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { TemasService } from './temas.service';
 import { CreateTemaDto } from './dto/create-tema.dto';
 import { UpdateTemaDto } from './dto/update-tema.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('temas')
 @Controller('temas')
 export class TemasController {
-  constructor(private readonly temasService: TemasService) {}
+  constructor(private readonly temasService: TemasService) { }
 
   @Post()
   create(@Body() createTemaDto: CreateTemaDto) {

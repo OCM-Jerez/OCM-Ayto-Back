@@ -7,13 +7,15 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { BibliotecaService } from './biblioteca.service';
 import { CreateBibliotecaDto } from './dto/create-biblioteca.dto';
 import { UpdateBibliotecaDto } from './dto/update-biblioteca.dto';
 
+@ApiTags('biblioteca')
 @Controller('biblioteca')
 export class BibliotecaController {
-  constructor(private readonly bibliotecaService: BibliotecaService) {}
+  constructor(private readonly bibliotecaService: BibliotecaService) { }
 
   @Post()
   create(@Body() createBibliotecaDto: CreateBibliotecaDto) {

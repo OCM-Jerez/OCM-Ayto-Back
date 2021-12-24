@@ -10,10 +10,12 @@ import {
 import { PresupuestosService } from './presupuestos.service';
 import { CreatePresupuestoDto } from './dto/create-presupuesto.dto';
 import { UpdatePresupuestoDto } from './dto/update-presupuesto.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('presupuestos')
 @Controller('presupuestos')
 export class PresupuestosController {
-  constructor(private readonly presupuestosService: PresupuestosService) {}
+  constructor(private readonly presupuestosService: PresupuestosService) { }
 
   @Post()
   create(@Body() createPresupuestoDto: CreatePresupuestoDto) {

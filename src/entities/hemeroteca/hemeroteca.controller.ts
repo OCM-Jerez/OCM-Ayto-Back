@@ -10,10 +10,12 @@ import {
 import { HemerotecaService } from './hemeroteca.service';
 import { CreateHemerotecaDto } from './dto/create-hemeroteca.dto';
 import { UpdateHemerotecaDto } from './dto/update-hemeroteca.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('hemeroteca')
 @Controller('hemeroteca')
 export class HemerotecaController {
-  constructor(private readonly hemerotecaService: HemerotecaService) {}
+  constructor(private readonly hemerotecaService: HemerotecaService) { }
 
   @Post()
   create(@Body() createHemerotecaDto: CreateHemerotecaDto) {

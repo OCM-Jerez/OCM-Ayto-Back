@@ -1,11 +1,13 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { ComisionesService } from './comisiones.service';
 import { CreateComisioneDto } from './dto/create-comisione.dto';
 import { UpdateComisioneDto } from './dto/update-comisione.dto';
 
+@ApiTags('comisiones')
 @Controller('comisiones')
 export class ComisionesController {
-  constructor(private readonly comisionesService: ComisionesService) {}
+  constructor(private readonly comisionesService: ComisionesService) { }
 
   @Post()
   create(@Body() createComisioneDto: CreateComisioneDto) {

@@ -10,10 +10,12 @@ import {
 import { SubvencionesService } from './subvenciones.service';
 import { CreateSubvencioneDto } from './dto/create-subvencione.dto';
 import { UpdateSubvencioneDto } from './dto/update-subvencione.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('subvenciones')
 @Controller('subvenciones')
 export class SubvencionesController {
-  constructor(private readonly subvencionesService: SubvencionesService) {}
+  constructor(private readonly subvencionesService: SubvencionesService) { }
 
   @Post()
   create(@Body() createSubvencioneDto: CreateSubvencioneDto) {

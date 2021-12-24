@@ -1,3 +1,6 @@
+Hago copia en:
+D:\Copias app\2021.12.24 OCM-Ayto-Back
+
 git switch -c mi-primera-rama
 
 Sigo instrucciones de esta pagina:

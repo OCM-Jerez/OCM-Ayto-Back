@@ -7,15 +7,17 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { ContratosMenoresService } from './contratos-menores.service';
 import { CreateContratosMenoreDto } from './dto/create-contratos-menore.dto';
 import { UpdateContratosMenoreDto } from './dto/update-contratos-menore.dto';
 
+@ApiTags('contratos-menores')
 @Controller('contratos-menores')
 export class ContratosMenoresController {
   constructor(
     private readonly contratosMenoresService: ContratosMenoresService,
-  ) {}
+  ) { }
 
   @Post()
   create(@Body() createContratosMenoreDto: CreateContratosMenoreDto) {

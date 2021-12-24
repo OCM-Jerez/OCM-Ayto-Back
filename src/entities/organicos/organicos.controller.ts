@@ -14,6 +14,7 @@ import { CreateOrganicoDto } from './dto/create-organico.dto';
 import { UpdateOrganicoDto } from './dto/update-organico.dto';
 import { Organico } from './entities/organico.entity';
 
+@ApiTags('organicos')
 @Controller('organicos')
 export class OrganicosController {
   constructor(private readonly organicosService: OrganicosService) { }

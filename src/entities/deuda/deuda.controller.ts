@@ -7,13 +7,15 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { DeudaService } from './deuda.service';
 import { CreateDeudaDto } from './dto/create-deuda.dto';
 import { UpdateDeudaDto } from './dto/update-deuda.dto';
 
+@ApiTags('deuda')
 @Controller('deuda')
 export class DeudaController {
-  constructor(private readonly deudaService: DeudaService) {}
+  constructor(private readonly deudaService: DeudaService) { }
 
   @Post()
   create(@Body() createDeudaDto: CreateDeudaDto) {
