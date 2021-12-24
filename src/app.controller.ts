@@ -1,6 +1,8 @@
 import { Controller, Request, Post, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('login')
 @Controller()
 export class AppController {
   @UseGuards(AuthGuard('local'))

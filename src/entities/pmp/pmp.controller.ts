@@ -10,10 +10,12 @@ import {
 import { PmpService } from './pmp.service';
 import { CreatePmpDto } from './dto/create-pmp.dto';
 import { UpdatePmpDto } from './dto/update-pmp.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('pmp')
 @Controller('pmp')
 export class PmpController {
-  constructor(private readonly pmpService: PmpService) {}
+  constructor(private readonly pmpService: PmpService) { }
 
   @Post()
   create(@Body() createPmpDto: CreatePmpDto) {
