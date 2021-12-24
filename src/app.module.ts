@@ -11,6 +11,8 @@ import { TYPEORM_CONFIG } from './config/constants';
 import databaseConfig from './config/database.config';
 
 import { EntitiesModule } from './entities/entities.module';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
@@ -29,6 +31,8 @@ import { EntitiesModule } from './entities/entities.module';
       }),
     }),
     EntitiesModule,
+    AuthModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
