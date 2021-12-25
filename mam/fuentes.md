@@ -45,3 +45,9 @@ En este video trata sobre migrations y deploy a Heroku.
 
 
 https://tecadmin.net/docker-compose-persistent-mysql-data/
+
+
+
+
+Material de Jimmy:
+https://github.com/jimyhdolores/curso-angular-11-server-fuckyncode
