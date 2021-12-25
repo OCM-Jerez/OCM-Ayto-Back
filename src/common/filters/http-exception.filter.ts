@@ -29,6 +29,6 @@ export class HttpExceptionFilter implements ExceptionFilter {
       errorResponse: errorResponse.response
     });
 
-    Logger.error(JSON.stringify(errorResponse), '', 'ExceptionFilter', false);
+    Logger.error(JSON.stringify(errorResponse), '', 'http-exception.filter', false);
   }
 }
