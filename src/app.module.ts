@@ -12,7 +12,7 @@ import databaseConfig from './config/database.config';
 
 import { EntitiesModule } from './entities/entities.module';
 import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './entities/users/users.module';
+import { UserModule } from './entities/user/user.module';
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
@@ -32,7 +32,7 @@ import { UsersModule } from './entities/users/users.module';
     }),
     EntitiesModule,
     AuthModule,
-    UsersModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
