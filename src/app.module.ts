@@ -1,4 +1,4 @@
-import { Module, MiddlewareConsumer, RequestMethod  } from '@nestjs/common';
+import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 // import { AccessControlModule } from 'nest-access-control';
@@ -12,7 +12,7 @@ import databaseConfig from './config/database.config';
 
 import { EntitiesModule } from './entities/entities.module';
 import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
+import { UsersModule } from './entities/users/users.module';
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
