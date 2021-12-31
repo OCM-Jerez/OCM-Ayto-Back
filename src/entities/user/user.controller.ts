@@ -7,9 +7,12 @@ import {
   Delete,
   UseInterceptors,
   Put,
+  Req,
 } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { Request } from 'express';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { LoggingInterceptor } from 'src/common/interceptors/logging.interceptor';
+import { User } from '../../entities/user/entities/user.entity';
 
 import { UserService } from './user.service';
 import { CreateUserDto, UpdateUserDto } from './dto';
@@ -22,6 +25,8 @@ export class UserController {
   constructor(private readonly userService: UserService) { }
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
+    console.log("user Post");
+
     return this.userService.create(createUserDto);
   }
 
@@ -47,4 +52,29 @@ export class UserController {
   remove(@Param('id') id: string) {
     return this.userService.remove(id);
   }
+
+  @Post('/registerLogin')
+  // @ApiOperation({ title: 'Comprueba si existe el login' })
+  @ApiResponse({
+    status: 201,
+    description: 'Comprueba si existe el login',
+    type: User
+  })
+
+  async registerLogin(@Req() req: Request, @Body() user: any): Promise<boolean> {
+    const loginExist = await this.userService.findByLogin(user.login);
+    console.log('loginExist ', loginExist, user.login);
+    return loginExist
+
+    // if (loginExist) {
+    //   console.log(user.login);
+    //   console.log("El login ya existe");
+    //   return true
+    // } else {
+    //   console.log(user.login);
+    //   console.log("El login no existe");
+    //   return false;
+    // }
+  }
+
 }
