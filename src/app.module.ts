@@ -13,6 +13,7 @@ import databaseConfig from './config/database.config';
 import { EntitiesModule } from './entities/entities.module';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './entities/user/user.module';
+import { RegisterModule } from './register/register.module';
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
@@ -33,6 +34,7 @@ import { UserModule } from './entities/user/user.module';
     EntitiesModule,
     AuthModule,
     UserModule,
+    // RegisterModule
   ],
   controllers: [AppController],
   providers: [AppService],
