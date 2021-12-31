@@ -77,4 +77,20 @@ export class UserController {
     // }
   }
 
+  @Post('/register')
+  // @ApiOperation({ title: 'Save user' })
+  @ApiResponse({
+    status: 201,
+    description: 'Save user',
+    type: User
+  })
+
+  async register(@Req() req: Request, @Body() user: User): Promise<boolean> {
+    console.log('async register ', [user]);
+    const created = await this.userService.save(user);
+    // HeaderUtil.addEntityCreatedHeaders(req.res, 'user', created.id);
+    return true
+  }
+
+
 }
