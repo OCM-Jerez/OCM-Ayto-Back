@@ -63,7 +63,7 @@ export class UserController {
 
   async registerLogin(@Req() req: Request, @Body() user: any): Promise<boolean> {
     const loginExist = await this.userService.findByLogin(user.login);
-    console.log('loginExist ', loginExist, user.login);
+    console.log('registerLogin ', loginExist, user.login);
     return loginExist
 
     // if (loginExist) {
