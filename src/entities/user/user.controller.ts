@@ -17,7 +17,7 @@ import { User } from '../../entities/user/entities/user.entity';
 
 import { UserService } from './user.service';
 import { CreateUserDto, UpdateUserDto } from './dto';
-// import { HttpException } from '@nestjs/common';
+import { HttpException } from '@nestjs/common';
 
 @ApiTags('user')
 @Controller('user')
@@ -63,7 +63,8 @@ export class UserController {
     type: User
   })
 
-  async registerLogin(@Req() req: Request, @Body() user: any): Promise<boolean> {
+  // async registerLogin(@Req() req: Request, @Body() user: any): Promise<boolean> {
+  async registerLogin(@Body() user: any): Promise<boolean> {
     const loginExist = await this.userService.findByLogin(user.login);
     // console.log('loginExist: ', loginExist, user.login);
     // if (!loginExist) {
@@ -86,5 +87,6 @@ export class UserController {
     // HeaderUtil.addEntityCreatedHeaders(req.res, 'user', created.id);
     return true
   }
+
 
 }
