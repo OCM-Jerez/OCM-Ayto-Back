@@ -46,20 +46,7 @@ export class UserService {
   }
 
   async findByLogin(login: string): Promise<boolean> {
-    // const result = await this.userRepository.findOne({ where: { login: login } });
-    console.log("findByLogin");
     return (await this.userRepository.findOne({ where: { login: login } }) ? true : false);
-
-
-    // if (result) {
-    //   return true
-    // } else {
-    //   return false
-    // }
-
-    // return (result ? true : false)
-
-    // return result;
   }
 
   async findByEmail(email: string): Promise<User | undefined> {
