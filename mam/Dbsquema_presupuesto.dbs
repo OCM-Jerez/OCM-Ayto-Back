@@ -80,7 +80,7 @@
 				<column name="id" />
 			</index>
 		</table>
-		<table name="economico_gasto" prior="economico" >
+		<table name="economico_gasto(Partida)" prior="economico_gasto" >
 			<column name="id" type="int" jt="4" mandatory="y" />
 			<column name="codigo" type="int" jt="4" mandatory="y" />
 			<column name="descripcion" type="varchar" length="100" jt="12" mandatory="y" />
@@ -89,7 +89,7 @@
 				<column name="id" />
 			</index>
 		</table>
-		<table name="economico_ingreso" prior="economico" >
+		<table name="economico_ingreso(Partida) " prior="economico_ingreso" >
 			<column name="id" type="int" jt="4" mandatory="y" >
 				<identity><![CDATA[AUTO_INCREMENT]]></identity>
 			</column>
@@ -228,34 +228,70 @@ liquidacion]]></comment>
 			</index>
 			<options><![CDATA[engine=InnoDB]]></options>
 		</table>
+		<table name="subconcepto_gasto" prior="concepto_gasto_0" >
+			<column name="id" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="codigo" type="int" jt="4" mandatory="y" />
+			<column name="descripcion" type="varchar" length="100" jt="12" />
+			<column name="observacion" type="varchar" length="100" jt="12" />
+			<index name="Pk_organico_id_5" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="subconcepto_ingreso" prior="concepto_ingreso_0" >
+			<column name="id" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="codigo" type="int" jt="4" mandatory="y" />
+			<column name="descripcion" type="varchar" length="100" jt="12" />
+			<column name="observacion" type="varchar" length="100" jt="12" />
+			<index name="Pk_organico_id_4" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="subprograma" prior="programa_0" >
+			<column name="id" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="codigo" type="int" jt="4" mandatory="y" />
+			<column name="descripcion" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="observacion" type="varchar" length="100" jt="12" />
+			<index name="Pk_programa_id_3" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
 	</schema>
 	<layout name="presupuesto" id="Layout_218a" joined_routing="y" show_column_type="y" show_relation="columns" >
-		<entity schema="presupuesto" name="area_gasto" color="3986C1" x="1056" y="80" />
-		<entity schema="presupuesto" name="articulo_gasto" color="3986C1" x="1152" y="752" />
+		<entity schema="presupuesto" name="area_gasto" color="3986C1" x="1072" y="80" />
+		<entity schema="presupuesto" name="articulo_gasto" color="3986C1" x="1168" y="752" />
 		<entity schema="presupuesto" name="articulo_ingreso" color="3986C1" x="416" y="208" />
-		<entity schema="presupuesto" name="capitulo_gasto" color="BED3F4" x="1072" y="624" />
+		<entity schema="presupuesto" name="capitulo_gasto" color="BED3F4" x="1088" y="624" />
 		<entity schema="presupuesto" name="capitulo_ingreso" color="BED3F4" x="336" y="80" />
-		<entity schema="presupuesto" name="concepto_gasto" color="3986C1" x="1232" y="880" />
+		<entity schema="presupuesto" name="concepto_gasto" color="3986C1" x="1248" y="880" />
 		<entity schema="presupuesto" name="concepto_ingreso" color="3986C1" x="480" y="336" />
-		<entity schema="presupuesto" name="economico_gasto" color="BED3F4" x="1328" y="1008" />
-		<entity schema="presupuesto" name="economico_ingreso" color="BED3F4" x="528" y="464" />
+		<entity schema="presupuesto" name="economico_gasto(Partida)" color="BED3F4" x="1440" y="1136" />
+		<entity schema="presupuesto" name="economico_ingreso(Partida) " color="BED3F4" x="592" y="592" />
 		<entity schema="presupuesto" name="estado" color="C1D8EE" x="272" y="880" />
-		<entity schema="presupuesto" name="grupo_programa" color="3986C1" x="1248" y="336" />
-		<entity schema="presupuesto" name="organico" color="BED3F4" x="1088" y="1168" />
-		<entity schema="presupuesto" name="politica" color="3986C1" x="1152" y="208" />
-		<entity schema="presupuesto" name="presupuesto_gasto" color="3986C1" x="800" y="320" />
+		<entity schema="presupuesto" name="grupo_programa" color="3986C1" x="1264" y="336" />
+		<entity schema="presupuesto" name="organico" color="BED3F4" x="1104" y="1168" />
+		<entity schema="presupuesto" name="politica" color="3986C1" x="1168" y="208" />
+		<entity schema="presupuesto" name="presupuesto_gasto" color="3986C1" x="816" y="320" />
 		<entity schema="presupuesto" name="presupuesto_ingreso" color="C7F4BE" x="48" y="192" />
-		<entity schema="presupuesto" name="programa" color="C7F4BE" x="1312" y="464" />
+		<entity schema="presupuesto" name="programa" color="C7F4BE" x="1328" y="464" />
+		<entity schema="presupuesto" name="subconcepto_gasto" color="3986C1" x="1376" y="1008" />
+		<entity schema="presupuesto" name="subconcepto_ingreso" color="3986C1" x="544" y="464" />
+		<entity schema="presupuesto" name="subprograma" color="3986C1" x="1392" y="592" />
 		<group name="INGRESO" color="C4E0F9" >
 			<entity schema="presupuesto" name="presupuesto_ingreso" />
-			<entity schema="presupuesto" name="economico_ingreso" />
+			<entity schema="presupuesto" name="economico_ingreso(Partida) " />
 			<entity schema="presupuesto" name="capitulo_ingreso" />
 			<entity schema="presupuesto" name="articulo_ingreso" />
 			<entity schema="presupuesto" name="concepto_ingreso" />
 		</group>
 		<group name="GASTO" color="C4E0F9" >
 			<entity schema="presupuesto" name="capitulo_gasto" />
-			<entity schema="presupuesto" name="economico_gasto" />
+			<entity schema="presupuesto" name="economico_gasto(Partida)" />
 			<entity schema="presupuesto" name="organico" />
 			<entity schema="presupuesto" name="presupuesto_gasto" />
 			<entity schema="presupuesto" name="programa" />
