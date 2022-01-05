@@ -8,6 +8,7 @@ import {
   UseInterceptors,
   Put,
   Req,
+  HttpStatus,
 } from '@nestjs/common';
 import { Request } from 'express';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
@@ -16,6 +17,7 @@ import { User } from '../../entities/user/entities/user.entity';
 
 import { UserService } from './user.service';
 import { CreateUserDto, UpdateUserDto } from './dto';
+// import { HttpException } from '@nestjs/common';
 
 @ApiTags('user')
 @Controller('user')
@@ -63,18 +65,11 @@ export class UserController {
 
   async registerLogin(@Req() req: Request, @Body() user: any): Promise<boolean> {
     const loginExist = await this.userService.findByLogin(user.login);
-    console.log('registerLogin ', loginExist, user.login);
-    return loginExist
-
-    // if (loginExist) {
-    //   console.log(user.login);
-    //   console.log("El login ya existe");
-    //   return true
-    // } else {
-    //   console.log(user.login);
-    //   console.log("El login no existe");
-    //   return false;
+    // console.log('loginExist: ', loginExist, user.login);
+    // if (!loginExist) {
+    //   throw new HttpException('Usuario NO EXISTE', HttpStatus.NOT_FOUND);
     // }
+    return loginExist;
   }
 
   @Post('/register')
@@ -91,6 +86,5 @@ export class UserController {
     // HeaderUtil.addEntityCreatedHeaders(req.res, 'user', created.id);
     return true
   }
-
 
 }
