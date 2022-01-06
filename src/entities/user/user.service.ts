@@ -49,6 +49,10 @@ export class UserService {
     return (await this.userRepository.findOne({ where: { login: login } }) ? true : false);
   }
 
+  async findByPassword(password: string): Promise<boolean> {
+    return (await this.userRepository.findOne({ where: { password: password } }) ? true : false);
+  }
+
   async findByEmail(email: string): Promise<User | undefined> {
     const result = await this.userRepository.findOne({ where: { email: email } });
     return result;

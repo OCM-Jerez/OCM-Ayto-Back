@@ -73,6 +73,25 @@ export class UserController {
     return loginExist;
   }
 
+
+  @Post('/passwordExist')
+  // @ApiOperation({ title: 'Comprueba si existe el login' })
+  @ApiResponse({
+    status: 201,
+    description: 'Comprueba si existe el login',
+    type: User
+  })
+
+  // async registerLogin(@Req() req: Request, @Body() user: any): Promise<boolean> {
+  async passwordExist(@Body() user: any): Promise<boolean> {
+    const loginExist = await this.userService.findByPassword(user.password);
+    // console.log('loginExist: ', loginExist, user.login);
+    // if (!loginExist) {
+    //   throw new HttpException('Usuario NO EXISTE', HttpStatus.NOT_FOUND);
+    // }
+    return loginExist;
+  }
+
   @Post('/register')
   // @ApiOperation({ title: 'Save user' })
   @ApiResponse({
