@@ -4,7 +4,7 @@ import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 // import { AccessControlModule } from 'nest-access-control';
 import * as Joi from 'joi';
 
-import { AppController } from './app.controller';
+// import { AppCo } from './app.controller';
 import { AppService } from './app.service';
 import { AppMiddleware } from './common/middleware/app.middleware';
 import { TYPEORM_CONFIG } from './config/constants';
@@ -36,7 +36,7 @@ import { RegisterModule } from './register/register.module';
     UserModule,
     // RegisterModule
   ],
-  controllers: [AppController],
+  // controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {
