@@ -13,10 +13,11 @@ import {
 import { Request } from 'express';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { LoggingInterceptor } from 'src/common/interceptors/logging.interceptor';
-import { User } from '../../entities/user/entities/user.entity';
+// https://dev.to/larswaechter/path-aliases-with-typescript-in-nodejs-4353?fbclid=IwAR0aBfgsVFija83iKdGKsU1WY0Ir4iJDXr1KNJwp40TeoxTyU-E9AxLsqKM
+import { User } from '../../entities/user/entities';
 
 import { UserService } from './user.service';
-import { CreateUserDto, UpdateUserDto } from './dto';
+import { CreateUserDto, EditUserDto } from './dto';
 import { HttpException } from '@nestjs/common';
 
 @ApiTags('user')
@@ -25,10 +26,103 @@ import { HttpException } from '@nestjs/common';
 
 export class UserController {
   constructor(private readonly userService: UserService) { }
+
+  // copiado de nestjs-myblog de Ruslan *********************
+
+  @Get()
+  async getMany() {
+    const data = await this.userService.getMany();
+    return { data };
+  }
+
+  // @Post('register')
+  // async publicRegistration(@Body() dto: UserRegistrationDto) {
+  //   const data = await this.userService.createOne({
+  //     ...dto,
+  //     roles: [AppRoles.AUTHOR],
+  //   });
+  //   return { message: 'User registered', data };
+  // }
+
+  @Get(':id')
+  async getOne(@Param('id') id: number) {
+    const data = await this.userService.getOne1(id);
+    return { data };
+  }
+
+  // @Auth({
+  //   possession: 'any',
+  //   action: 'create',
+  //   resource: AppResource.USER,
+  // })
+
+  @Post()
+  async createOne(@Body() dto: CreateUserDto) {
+    const data = await this.userService.createOne(dto);
+    return { message: 'User created', data };
+  }
+
+  // @Auth({
+  //   possession: 'own',
+  //   action: 'update',
+  //   resource: AppResource.USER,
+  // })
+  @Put(':id')
+  async editOne(
+    @Param('id') id: number,
+    @Body() dto: EditUserDto,
+    // @User() user: UserEntity,
+  ) {
+    const data = await this.userService.editOne(id, dto);
+    // let data;
+
+    // if (this.rolesBuilder.can(user.roles).updateAny(AppResource.USER).granted) {
+    //   // esto es un admin
+    //   data = await this.userService.editOne(id, dto);
+    // } else {
+    //   // esto es un author
+    //   const { roles, ...rest } = dto;
+    // data = await this.userService.editOne(id, rest, user);
+    // }
+    return { message: 'User edited', data };
+  }
+
+  // @Auth({
+  //   action: 'delete',
+  //   possession: 'own',
+  //   resource: AppResource.USER,
+  // })
+  @Delete(':id')
+  async deleteOne(
+    @Param('id') id: number,) {
+    const data = await this.userService.deleteOne(id);
+
+
+    // async deleteOne(@Param('id') id: number, @User() user: UserEntity) {
+    //   let data;
+
+    //   if (this.rolesBuilder.can(user.roles).updateAny(AppResource.USER).granted) {
+    //     // esto es un admin
+    //     data = await this.userService.deleteOne(id);
+    //   } else {
+    //     // esto es un author
+    //     data = await this.userService.deleteOne(id, user);
+    //   }
+    return { message: 'User deleted', data };
+  }
+
+
+  // ***********************************************************
+
+
+
+
+
+
+
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
     console.log("user Post");
-
     return this.userService.create(createUserDto);
   }
 
@@ -45,7 +139,7 @@ export class UserController {
   @Put(':id')
   async update(
     @Param('id') id: string,
-    @Body() updateUserDto: UpdateUserDto,
+    @Body() updateUserDto: EditUserDto,
   ) {
     return await this.userService.update(id, updateUserDto);
   }

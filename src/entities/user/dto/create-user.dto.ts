@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsString, IsUrl } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
 
 import { BaseEntity } from '../../base/base.entity';
 
@@ -10,5 +10,8 @@ export class CreateUserDto extends BaseEntity {
 
     @IsString()
     readonly password: string;
+
+    // @IsEmail()
+    // email: string;
 
 }

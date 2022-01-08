@@ -1,7 +1,7 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { Repository } from 'typeorm';
 
-import { CreateUserDto, UpdateUserDto } from './dto';
+import { CreateUserDto, EditUserDto } from './dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FindManyOptions, FindOneOptions } from 'typeorm';
 
@@ -9,12 +9,72 @@ import { FindManyOptions, FindOneOptions } from 'typeorm';
 // Al tener index.ts en la misma carpeta permite acortar la ruta.
 import { User } from './entities';
 
+export interface UserFindOne {
+  id?: number;
+  email?: string;
+}
+
 @Injectable()
 export class UserService {
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
   ) { }
+
+  // copiado de nestjs-myblog de Ruslan *********************
+
+  async getMany() {
+    return await this.userRepository.find();
+  }
+
+  async getOne1(id: number, userEntity?: User) {
+    const user = await this.userRepository
+      .findOne(id)
+      .then(u => (!userEntity ? u : !!u && userEntity.id === u.id ? u : null));
+
+    if (!user)
+      throw new NotFoundException('MAM User does not exists or unauthorized');
+
+    return user;
+  }
+
+  async createOne(dto: CreateUserDto) {
+    // const userExist = await this.userRepository.findOne({ email: dto.email });
+    const userExist = await this.userRepository.findOne({ login: dto.login });
+
+    if (userExist)
+      throw new BadRequestException('MAM User already registered');
+
+    const newUser = this.userRepository.create(dto);
+    const user = await this.userRepository.save(newUser);
+
+    delete user.password;
+    return user;
+  }
+
+  async editOne(id: number, dto: EditUserDto, userEntity?: User) {
+    console.log(dto);
+    const user = await this.getOne(id, userEntity);
+    const editedUser = Object.assign(user, dto);
+    return await this.userRepository.save(editedUser);
+  }
+
+  async deleteOne(id: number, userEntity?: User) {
+    const user = await this.getOne(id, userEntity);
+    return await this.userRepository.remove(user);
+  }
+
+  async findOne1(data: UserFindOne) {
+    return await this.userRepository
+      .createQueryBuilder('user')
+      .where(data)
+      .addSelect('user.password')
+      .getOne();
+  }
+
+  // ***********************************************************************
+
+
 
   async create(createUserDto: CreateUserDto) {
     return await this.userRepository.save(createUserDto);
@@ -30,7 +90,19 @@ export class UserService {
     return await this.userRepository.findOne(id);
   }
 
-  async update(id: string, updateUserDto: UpdateUserDto) {
+  async getOne(id: number, userEntity?: User) {
+    const user = await this.userRepository
+      .findOne(id)
+      .then(u => (!userEntity ? u : !!u && userEntity.id === u.id ? u : null));
+
+    if (!user)
+      throw new NotFoundException('User does not exists or unauthorized');
+
+    return user;
+  }
+
+
+  async update(id: string, updateUserDto: EditUserDto) {
     return await this.userRepository.update(id, updateUserDto);
   }
 
