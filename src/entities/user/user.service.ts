@@ -10,8 +10,8 @@ import { FindManyOptions, FindOneOptions } from 'typeorm';
 import { User } from './entities';
 
 export interface UserFindOne {
-  id?: number;
-  email?: string;
+  id?: string;
+  login?: string;
 }
 
 @Injectable()
@@ -64,7 +64,7 @@ export class UserService {
     return await this.userRepository.remove(user);
   }
 
-  async findOne1(data: UserFindOne) {
+  async findOne(data: UserFindOne) {
     return await this.userRepository
       .createQueryBuilder('user')
       .where(data)
@@ -86,7 +86,7 @@ export class UserService {
       .catch((err) => console.log(err));
   }
 
-  async findOne(id: string) {
+  async findOne1(id: string) {
     return await this.userRepository.findOne(id);
   }
 

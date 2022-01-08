@@ -66,8 +66,29 @@ https://www.youtube.com/watch?v=lTmGLgtgjdM&t
 CRUD Login JWT - Part 2
 https://www.youtube.com/watch?v=kjr54SpV_eQ
 0:06 Clonar repositorio con el estado anterior.
-0:10 Configuracion.
-=:
+0:10 Repaso sesiones anteriores.
+0:19 Crea auth => controller, module y service, uno por uno.
+0:24 Instala @nestjs/passport, passport, passport-local y @type/passport-local
+0:26 En auth.module.ts importa  imports: [PassportModul]
+0:27 Estrategias de authentication
+0:28 Crea carpeta auth/strategies
+0:30 Configura localstrategie.ts
+0:32 Configura auth.service.ts
+0:34 crea findOne en userService.ts
+0:40 createQueryBuilder en userService.ts
+0:46 AuthGuard
+
+1:11 Termina promoción curso @Anartz Mugika Ledo
+1:12 Crea interface UserFindOne en user.service.ts
+1:18 crea user.decorator.ts
+NO ME FUNCIONA
+1:
+
+
+
+
+
+
 
 
 
