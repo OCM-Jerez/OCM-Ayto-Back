@@ -6,7 +6,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { FindManyOptions, FindOneOptions } from 'typeorm';
 
 // import { User } from './entities/user.entity';
-// Al tener index.ts en la mima carpeta permite acortar la ruta.
+// Al tener index.ts en la misma carpeta permite acortar la ruta.
 import { User } from './entities';
 
 @Injectable()
@@ -16,26 +16,26 @@ export class UserService {
     private readonly userRepository: Repository<User>,
   ) { }
 
-  create(createUserDto: CreateUserDto) {
-    return this.userRepository.save(createUserDto);
+  async create(createUserDto: CreateUserDto) {
+    return await this.userRepository.save(createUserDto);
   }
 
-  findAll() {
-    return this.userRepository
+  async findAll() {
+    return await this.userRepository
       .find({ order: { login: 'ASC' } })
       .catch((err) => console.log(err));
   }
 
-  findOne(id: string) {
-    return this.userRepository.findOne(id);
+  async findOne(id: string) {
+    return await this.userRepository.findOne(id);
   }
 
-  update(id: string, updateUserDto: UpdateUserDto) {
-    return this.userRepository.update(id, updateUserDto);
+  async update(id: string, updateUserDto: UpdateUserDto) {
+    return await this.userRepository.update(id, updateUserDto);
   }
 
-  remove(id: string) {
-    return this.userRepository.delete(id);
+  async remove(id: string) {
+    return await this.userRepository.delete(id);
   }
 
 
