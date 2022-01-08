@@ -29,6 +29,15 @@ export class ProgramasController {
     return await this.programasService.findAll();
   }
 
+  // @Get()
+  // async findAll(): Promise<any | void | Programa[]> {
+  //   const data = await this.programasService.findAll();
+  //   return {
+  //     message: 'OK',
+  //     data,
+  //   }
+  // }
+
   @Get(':id')
   async findOne(@Param('id') id: string) {
     return await this.programasService.findOne(id);
