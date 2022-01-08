@@ -1,13 +1,13 @@
-import {
-  Injectable,
-} from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 
 import { CreateUserDto, UpdateUserDto } from './dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FindManyOptions, FindOneOptions } from 'typeorm';
 
-import { User } from './entities/user.entity';
+// import { User } from './entities/user.entity';
+// Al tener index.ts en la mima carpeta permite acortar la ruta.
+import { User } from './entities';
 
 @Injectable()
 export class UserService {
