@@ -1,10 +1,10 @@
 import { HttpAdapterHost, NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
 import { initSwagger } from './app.swagger';
 
-import { AppModule } from './app.module';
 import { SERVER_PORT } from './config/constants';
 import { generateTypeormConfigFile } from './scripts';
 import { GlobalExceptionFilter } from './common/filters/global-exception.filter';
