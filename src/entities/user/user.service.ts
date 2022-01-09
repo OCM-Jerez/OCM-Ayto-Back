@@ -65,8 +65,6 @@ export class UserService {
   }
 
   async findOne(data: UserFindOne) {
-    console.log(data);
-
     return await this.userRepository
       .createQueryBuilder('user')
       .where(data)

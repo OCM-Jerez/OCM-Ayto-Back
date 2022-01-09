@@ -77,12 +77,37 @@ https://www.youtube.com/watch?v=kjr54SpV_eQ
 0:34 crea findOne en userService.ts
 0:40 createQueryBuilder en userService.ts
 0:46 AuthGuard
-
+0:50 Comienza promoción curso @Anartz Mugika Ledo
 1:11 Termina promoción curso @Anartz Mugika Ledo
 1:12 Crea interface UserFindOne en user.service.ts
+1:18 El sitema de login funciona con el password encriptado.
 1:18 crea user.decorator.ts
-NO ME FUNCIONA
+1:19 Crea carpeta Common
+1:20 Crea user.decorator.ts
+1:21 Usa @User()
+1:24 Comienza a implementar JWT
+1:25 npm i -D @types/passport-jwt
+1:25 Añade JWT a auth.module.ts
+1:27 Uso variables de entorno
+1:30 Crea login() en auth.service.ts
+1:33 Crea jwt.strategy.ts
+1:36 Utiliza jwt.strategy
+1:36 Crea jwt-auth-guard.ts
+1:38 Modifica login() en auth.controller.ts
+1:40 Añade JWT strategy al auth.module.ts
+1:41 En main.ts añade  const config = app.get(ConfigService) 
+1:45 Prueba autentication con Postman
+1:48 Corrige error en auth.controller.ts
+1:49 Modifica authService.ts
+1:50 Compueba token en https://jwt.io/
+1:52 Prueba authentication de la ruta profile con Postman
+1:54 en auth.module.ts registra strategy JWT
+1:59 refreshToken()
 1:
+
+
+
+
 
 
 

@@ -11,15 +11,15 @@ import { LocalStrategy, JwtStrategy } from './strategies';
 
 @Module({
   imports: [
-    // PassportModule.register({
-    //   defaultStrategy: 'jwt',
-    // }),
+    PassportModule.register({
+      defaultStrategy: 'jwt',
+    }),
     PassportModule,
     JwtModule.registerAsync({
       inject: [ConfigService],
       useFactory: (config: ConfigService) => ({
         secret: config.get<string>(JWT_SECRET),
-        signOptions: { expiresIn: '60s' },
+        signOptions: { expiresIn: '24h' },
       }),
     }),
     UserModule,
