@@ -16,14 +16,16 @@ export class AuthController {
 
     @UseGuards(LocalAuthGuard)
     @Post('login')
+    // login(
+    //     @Req() req: any
+    // ) {
+    //     return req.user;
+    // }
+
     login(
-        @Req() req: any
+        @User() user: UserEntity
     ) {
-        // return 'login funciona';
-        // return 'login funciona con LocalAuthGuard';
-        //     console.log('req', req);
-        //     console.log('req.user', req.user);
-        return req.user;
+        return user;
     }
 
 
