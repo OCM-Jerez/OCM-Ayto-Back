@@ -5,6 +5,8 @@ import { LocalAuthGuard } from './guards';
 import { AuthService } from './auth.service';
 import { ApiTags } from '@nestjs/swagger';
 import { User } from 'src/common/decorators';
+import { User as UserEntity } from 'src/entities/user/entities/user.entity';
+
 // import { LoginDto } from './dtos/login.dto';
 
 @ApiTags('Auth routes')
@@ -12,14 +14,16 @@ import { User } from 'src/common/decorators';
 export class AuthController {
     constructor(private readonly authService: AuthService) { }
 
-    // @UseGuards(LocalAuthGuard)
+    @UseGuards(LocalAuthGuard)
     @Post('login')
     login(
-        @User() user: any
+        @Req() req: any
     ) {
+        // return 'login funciona';
         // return 'login funciona con LocalAuthGuard';
-        console.log('user', user);
-        return user;
+        //     console.log('req', req);
+        //     console.log('req.user', req.user);
+        return req.user;
     }
 
 

@@ -7,11 +7,11 @@ import { FindManyOptions, FindOneOptions } from 'typeorm';
 
 // import { User } from './entities/user.entity';
 // Al tener index.ts en la misma carpeta permite acortar la ruta.
-import { User } from './entities';
+import { User } from './entities/';
 
 export interface UserFindOne {
   id?: string;
-  login?: string;
+  email?: string;
 }
 
 @Injectable()
@@ -65,6 +65,8 @@ export class UserService {
   }
 
   async findOne(data: UserFindOne) {
+    console.log(data);
+
     return await this.userRepository
       .createQueryBuilder('user')
       .where(data)

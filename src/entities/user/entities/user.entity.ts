@@ -11,6 +11,9 @@ export class User extends BaseEntity {
     @Column({ type: 'varchar', length: 255, nullable: false, select: false })
     password: string;
 
+    @Column({ type: 'varchar', length: 20, nullable: false })
+    email: string;
+
     @BeforeInsert()
     @BeforeUpdate()
     async hashPassword() {

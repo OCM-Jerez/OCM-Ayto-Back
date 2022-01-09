@@ -33,8 +33,6 @@ import { RegisterModule } from './register/register.module';
     }),
     EntitiesModule,
     AuthModule,
-    UserModule,
-    // RegisterModule
   ],
   // controllers: [AppController],
   providers: [AppService],
