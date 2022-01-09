@@ -103,7 +103,18 @@ https://www.youtube.com/watch?v=kjr54SpV_eQ
 1:52 Prueba authentication de la ruta profile con Postman
 1:54 en auth.module.ts registra strategy JWT
 1:59 refreshToken()
-1:
+2:00 ExtendingGuards
+2:03 Tratamiento de errores. No cambia codigo
+2:05 Evita devolver el password con operador spread
+2:06 Configurar addBearerAuth() en Swagger
+2:10 En auth.controller.ts devuel user en profile.
+2:12 Crea auth.decorator.ts
+2:15 Gestios de roles
+
+
+
+
+
 
 
 
