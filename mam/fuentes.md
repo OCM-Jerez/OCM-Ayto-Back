@@ -110,6 +110,21 @@ https://www.youtube.com/watch?v=kjr54SpV_eQ
 2:10 En auth.controller.ts devuel user en profile.
 2:12 Crea auth.decorator.ts
 2:15 Gestios de roles
+2:17 Crea rama livecoding3 en GitHub 
+2:23 Tres tipos de roles: public, author, admin
+2:24 Protege las rutas que requieren authentication
+2:26 Crea carpeta DTO
+2:28 Usando los DTO en Swagger tendremos los campos disponible como ejemplo de Body
+2:33 Instala nest-access-control
+2:34 configura app-module.ts
+2:36 Crea archivo app.roles.ts
+2:44 Utiliza los roles en los controller correspondientes
+
+
+
+
+
+
 
 
 

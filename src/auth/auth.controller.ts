@@ -1,4 +1,4 @@
-import { Controller, Post, Get, UseGuards } from '@nestjs/common';
+import { Controller, Post, Get, UseGuards, Body } from '@nestjs/common';
 import { JwtAuthGuard, LocalAuthGuard } from './guards';
 // import { User, Auth } from 'src/common/decorators';
 // import { User as UserEntity } from 'src/user/entities';
@@ -9,6 +9,7 @@ import { User as UserEntity } from 'src/entities/user/entities/user.entity';
 
 // import { LoginDto } from './dtos/login.dto';
 import { AuthGuard } from '@nestjs/passport';
+import { LoginDto } from './dtos/login.dto';
 
 @ApiTags('Auth')
 @Controller('auth')
@@ -18,6 +19,7 @@ export class AuthController {
     @UseGuards(LocalAuthGuard)
     @Post('login')
     async login(
+        @Body() loginDto: LoginDto,
         @User() user: UserEntity
     ) {
         const data = await this.authService.login(user);
