@@ -12,6 +12,7 @@ export class CreateUserDto extends BaseEntity {
     readonly password: string;
 
     // @IsEmail()
-    // email: string;
+    @IsString()
+    email: string;
 
 }
