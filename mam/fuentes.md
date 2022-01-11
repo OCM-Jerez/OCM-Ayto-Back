@@ -110,7 +110,7 @@ https://www.youtube.com/watch?v=kjr54SpV_eQ
 2:10 En auth.controller.ts devuel user en profile.
 2:12 Crea auth.decorator.ts
 2:15 Gestios de roles
-2:17 Crea rama livecoding3 en GitHub 
+2:17 Crea rama livecoding/3 en GitHub 
 2:23 Tres tipos de roles: public, author, admin
 2:24 Protege las rutas que requieren authentication
 2:26 Crea carpeta DTO
@@ -121,46 +121,28 @@ https://www.youtube.com/watch?v=kjr54SpV_eQ
 2:44 Utiliza los roles en los controller correspondientes
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Deploy de NestJS con migraciones en TypeORM en Heroku
 https://www.youtube.com/watch?v=P2gvIQRXIuc
+0:08 Clona la rama livecoding/3
+0:10 Explica el Docker de MySQL
+0:20 Crea database.config.ts
+0:37 Diferentes entornos con .env
+0:39 Aglegar env.sample a .gitignore
+0:42 Instala y usa joi
+0:44 Carga configuraciones de la BBDD en app.module.ts
+0:46 Crea carpeta scripts
+0:47 Genera ormconfig.json 
+0:48 Agrega  generateTypeormConfigFile(config); en main.ts
+0:50 Migraciones
+0:57 Estado inicial de las migraciones.
+1:01 Hay que hacer build antes de hacer las migraciones.
+1:10 Crear db:migration:generate nombre con cada modificación de la BBDD.
+1:11 @UpdateDateColumn
+1:13 Ignorar ormconfig.json
+1:14 Problemas con  NOT NULL
+1:18 git commit to branch livecoding/4
+1:22 Heroku
+
 
 
 
