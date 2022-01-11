@@ -1,3 +1,10 @@
+Una vez completados los 4 videos de Ruslan, intento aplicar login-register-profile al front.
+Creo rama login-register-profile y la hago default.
+
+
+
+
+
 1.- Crear index.js para cada dto.
 
 @Module({
