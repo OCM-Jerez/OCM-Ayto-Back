@@ -11,9 +11,9 @@ Tenemos otros controladores para register y otro para profile (datos completos d
 export class LoginController {
   constructor(private readonly loginService: LoginService) { }
 
-  @Get(':login')
-  async findOne(@Param('login') login: string): Promise<boolean> {
-    const existeLoginPassword = await this.loginService.findOne(login);
+  @Get(':login/:password')
+  async findOne(@Param('login') login: string, @Param('password') password: string): Promise<boolean> {
+    const existeLoginPassword = await this.loginService.findOne(login, password);
     console.log('existeLoginPassword', existeLoginPassword);
     return existeLoginPassword
   }

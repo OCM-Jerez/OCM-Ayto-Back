@@ -8,8 +8,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 export class LoginService {
   constructor(@InjectRepository(UserRepository) private userRepository: UserRepository) { }
 
-  async findOne(login: string) {
-    return (await this.userRepository.findOne({ where: { login: login, email: "mam" } }) ? true : false);
+  async findOne(login: string, password: string): Promise<boolean> {
+    return (await this.userRepository.findOne({ where: { login: login, email: password } }) ? true : false);
   }
 
 }
