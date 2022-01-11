@@ -11,40 +11,11 @@ Tenemos otros controladores para register y otro para profile (datos completos d
 export class LoginController {
   constructor(private readonly loginService: LoginService) { }
 
-  @Get()
-  findAll() {
-    console.log("entrando a login");
-    return {
-      message: "entrando a login"
-    }
-    return this.loginService.findAll();
+  @Get(':login')
+  async findOne(@Param('login') login: string): Promise<boolean> {
+    const existeLoginPassword = await this.loginService.findOne(login);
+    console.log('existeLoginPassword', existeLoginPassword);
+    return existeLoginPassword
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    // console.log("entrando a login con parametro ");
-    // return {
-    //   id,
-    //   message: "entrando a login con parametro"
-    // }
-    return this.loginService.findOne(id);
-  }
-
-  // @Post()
-  // create(@Body() createLoginDto: CreateLoginDto) {
-  //   return this.loginService.create(createLoginDto);
-  // }
-
-
-
-
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateLoginDto: UpdateLoginDto) {
-  //   return this.loginService.update(+id, updateLoginDto);
-  // }
-
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   return this.loginService.remove(+id);
-  // }
 }
