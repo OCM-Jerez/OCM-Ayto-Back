@@ -14,6 +14,7 @@ import { EntitiesModule } from './entities/entities.module';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './entities/user/user.module';
 import { RegisterModule } from './register/register.module';
+import { LoginModule } from './auth/login/login.module';
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
@@ -33,6 +34,7 @@ import { RegisterModule } from './register/register.module';
     }),
     EntitiesModule,
     AuthModule,
+    LoginModule,
   ],
   // controllers: [AppController],
   providers: [AppService],
