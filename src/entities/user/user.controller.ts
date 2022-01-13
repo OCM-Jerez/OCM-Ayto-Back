@@ -44,6 +44,26 @@ export class UserController {
   //   return { message: 'User registered', data };
   // }
 
+  @Post('/registerLogin')
+  // @ApiOperation({ title: 'Comprueba si existe el login' })
+  @ApiResponse({
+    status: 201,
+    description: 'Comprueba si existe el login',
+    type: User
+  })
+
+  // async registerLogin(@Req() req: Request, @Body() user: any): Promise<boolean> {
+
+  async registerLogin(@Body() user: any): Promise<boolean> {
+    console.log("Entro registerLogin");
+    const loginExist = await this.userService.findByLogin(user.login);
+    console.log('loginExist: ', loginExist, user.login, user.password);
+    if (!loginExist) {
+      throw new HttpException('Usuario NO EXISTE', HttpStatus.NOT_FOUND);
+    }
+    return loginExist;
+  }
+
   @Get(':id')
   async getOne(@Param('id') id: number) {
     const data = await this.userService.getOne1(id);
@@ -67,6 +87,8 @@ export class UserController {
   //   action: 'update',
   //   resource: AppResource.USER,
   // })
+
+
   @Put(':id')
   async editOne(
     @Param('id') id: number,
@@ -149,23 +171,7 @@ export class UserController {
     return this.userService.remove(id);
   }
 
-  @Post('/registerLogin')
-  // @ApiOperation({ title: 'Comprueba si existe el login' })
-  @ApiResponse({
-    status: 201,
-    description: 'Comprueba si existe el login',
-    type: User
-  })
 
-  // async registerLogin(@Req() req: Request, @Body() user: any): Promise<boolean> {
-  async registerLogin(@Body() user: any): Promise<boolean> {
-    const loginExist = await this.userService.findByLogin(user.login);
-    // console.log('loginExist: ', loginExist, user.login);
-    // if (!loginExist) {
-    //   throw new HttpException('Usuario NO EXISTE', HttpStatus.NOT_FOUND);
-    // }
-    return loginExist;
-  }
 
 
   @Post('/passwordExist')

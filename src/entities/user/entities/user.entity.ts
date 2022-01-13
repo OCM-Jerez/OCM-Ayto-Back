@@ -1,6 +1,6 @@
 import { hash } from 'bcryptjs';
 import { Entity, Column, BeforeInsert, BeforeUpdate } from 'typeorm';
-import { BaseEntity } from '../../base/base.entity';
+import { BaseEntity } from '../../base';
 
 @Entity('user')
 export class User extends BaseEntity {
@@ -8,12 +8,9 @@ export class User extends BaseEntity {
     login: string;
 
     // Con select: false, no se muestra en la respuesta
-    @Column({ type: 'varchar', length: 255, nullable: false, select: false })
+    // @Column({ type: 'varchar', length: 255, nullable: false, select: false })
+    @Column({ type: 'varchar', length: 255, nullable: false })
     password: string;
-
-    @Column({ type: 'varchar', length: 20, nullable: false })
-    email: string;
-
     @BeforeInsert()
     @BeforeUpdate()
     async hashPassword() {
@@ -22,7 +19,10 @@ export class User extends BaseEntity {
         }
         this.password = await hash(this.password, 10);
         console.log(this.password.length);
-
     }
+
+    @Column({ type: 'varchar', length: 20, nullable: false })
+    email: string;
+
 
 }
