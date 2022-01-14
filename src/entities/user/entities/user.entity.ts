@@ -18,7 +18,7 @@ export class User extends BaseEntity {
             return;
         }
         this.password = await hash(this.password, 10);
-        console.log(this.password.length);
+        // console.log(this.password.length);
     }
 
     @Column({ type: 'varchar', length: 20, nullable: false })
