@@ -21,8 +21,6 @@ export class LoginController {
   @Get(':login/:password')
   async findOne(@Param('login') login: string, @Param('password') password: string): Promise<boolean> {
     return await this.loginService.validateUser(login, password);
-    // console.log('existeLoginPassword', existeLoginPassword);
-    // return existeLoginPassword
   }
 
 }
