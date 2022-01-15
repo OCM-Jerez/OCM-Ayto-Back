@@ -4,20 +4,13 @@ import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 // import { AccessControlModule } from 'nest-access-control';
 import * as Joi from 'joi';
 
-// import { AppCo } from './app.controller';
-import { AppService } from './app.service';
-import { AppMiddleware } from './common/middleware/app.middleware';
+// import { AppMiddleware } from './common/middleware/app.middleware';
+import { AuthModule } from './logic/auth/auth.module';
+import { EntitiesModule } from './entitiesOLD/entities.module';
+import { LoginModule } from './logic/auth/login/login.module';
 import { TYPEORM_CONFIG } from './config/constants';
 import databaseConfig from './config/database.config';
-import { EntitiesModule } from './entitiesOLD/entities.module';
-import { AuthModule } from './logic/auth/auth.module';
-import { LoginModule } from './logic/auth/login/login.module';
 
-// import { EntitiesModule } from './entities/entities.module';
-// import { AuthModule } from './auth/auth.module';
-// import { UserModule } from './entities/user/user.module';
-// import { RegisterModule } from './auth/register/register.module';
-// import { LoginModule } from './auth/login/login.module';
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
@@ -39,8 +32,6 @@ import { LoginModule } from './logic/auth/login/login.module';
     AuthModule,
     LoginModule,
   ],
-  // controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {
   // configure(consumer: MiddlewareConsumer) {
