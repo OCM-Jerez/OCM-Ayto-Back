@@ -6,12 +6,12 @@
   "password": "root",
   "database": "ayuntamiento",
   "entities": [
-    "C:\\Users\\Usuario\\Google Drive\\Angular\\OCM-Ayto-Back\\dist\\entities\\**\\*.entity{.ts,.js}"
+    "C:\\Users\\Usuario\\Google Drive\\Angular\\OCM-Ayto-Back\\dist\\src\\entities\\**\\*.entity{.ts,.js}"
   ],
   "autoLoadEntities": true,
   "migrationsRun": false,
   "migrations": [
-    "C:\\Users\\Usuario\\Google Drive\\Angular\\OCM-Ayto-Back\\dist\\database\\migrations\\*{.ts,.js}"
+    "C:\\Users\\Usuario\\Google Drive\\Angular\\OCM-Ayto-Back\\dist\\src\\database\\migrations\\*{.ts,.js}"
   ],
   "migrationsTableName": "migrations_typeorm",
   "cli": {
