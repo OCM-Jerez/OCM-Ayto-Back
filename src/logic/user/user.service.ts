@@ -1,7 +1,7 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { Repository } from 'typeorm';
 
-import { CreateUserDto, EditUserDto } from './dto';
+import { CreateUserDto, EditUserDto } from './models';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FindManyOptions, FindOneOptions } from 'typeorm';
 import { User } from 'src/entities/user.entity';

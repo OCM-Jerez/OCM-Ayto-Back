@@ -2,9 +2,9 @@ import { Injectable, ExceptionFilter } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { CreateProgramaDto } from './dto/create-programa.dto';
-import { UpdateProgramaDto } from './dto/update-programa.dto';
-import { Programa } from 'src/entities/programa.entity';
+import { CreateProgramaDto } from './models';
+import { UpdateProgramaDto } from './models';
+import { Programa } from 'src/entities/';
 // import { Programa } from '../../programa.entity';
 
 @Injectable()

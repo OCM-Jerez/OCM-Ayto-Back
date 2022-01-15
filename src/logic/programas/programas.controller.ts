@@ -8,9 +8,9 @@ import {
   Param,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { Programa } from 'src/entities/programa.entity';
+import { Programa } from 'src/entities/';
 
-import { CreateProgramaDto, UpdateProgramaDto } from './dto';
+import { CreateProgramaDto, UpdateProgramaDto } from './models';
 import { ProgramasService } from './programas.service';
 // import { Programa } from '../../programa.entity';
 

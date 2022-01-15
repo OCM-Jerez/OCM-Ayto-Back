@@ -10,8 +10,8 @@ import {
 import { ApiTags } from '@nestjs/swagger';
 
 import { EconomicosService } from './economicos.service';
-import { CreateEconomicoDto } from './dto/create-economico.dto';
-import { UpdateEconomicoDto } from './dto/update-economico.dto';
+import { CreateEconomicoDto } from './models/';
+import { UpdateEconomicoDto } from './models/';
 
 @ApiTags('economicos')
 @Controller('economicos')

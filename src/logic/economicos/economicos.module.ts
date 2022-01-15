@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { EconomicosService } from './economicos.service';
 import { EconomicosController } from './economicos.controller';
-import { EconomicoRepository } from '../../repositories/economico.repository';
+import { EconomicoRepository } from '../../repositories';
 
 @Module({
   imports: [TypeOrmModule.forFeature([EconomicoRepository])],

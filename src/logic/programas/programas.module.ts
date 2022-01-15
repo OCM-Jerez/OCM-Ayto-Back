@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { ProgramasService } from './programas.service';
 import { ProgramasController } from './programas.controller';
-import { ProgramaRepository } from '../../repositories/programa.repository';
+import { ProgramaRepository } from '../../repositories';
 
 @Module({
   imports: [TypeOrmModule.forFeature([ProgramaRepository])],

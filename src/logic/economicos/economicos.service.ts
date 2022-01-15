@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { CreateEconomicoDto } from './dto/create-economico.dto';
-import { UpdateEconomicoDto } from './dto/update-economico.dto';
-import { Economico } from '../../entities/economico.entity';
+import { CreateEconomicoDto } from './models/';
+import { UpdateEconomicoDto } from './models/';
+import { Economico } from '../../entities/';
 
 
 @Injectable()

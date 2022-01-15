@@ -17,9 +17,9 @@ import { LoggingInterceptor } from 'src/common/interceptors/logging.interceptor'
 // import { User } from '../../entities/user/entities';
 
 import { UserService } from './user.service';
-import { CreateUserDto, EditUserDto } from './dto';
+import { CreateUserDto, EditUserDto } from './models';
 import { HttpException } from '@nestjs/common';
-import { User } from 'src/entities/user.entity';
+import { User } from 'src/entities/';
 
 @ApiTags('user')
 @Controller('user')
