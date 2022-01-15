@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
@@ -14,6 +14,10 @@ export class LoginService {
 
   async validateUser(login: string, pass: string): Promise<any> {
     const user = await this.userRepository.findOne({ login });
+    // if (!user) {
+    //   console.log('UnauthorizedException');
+    //   throw new UnauthorizedException('Invalid credentials!');
+    // }
     return ((user && (await compare(pass, user.password))) ? true : false)
   }
 
