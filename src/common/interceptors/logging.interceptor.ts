@@ -2,8 +2,8 @@ import {
   CallHandler,
   ExecutionContext,
   Injectable,
-  NestInterceptor,
   Logger,
+  NestInterceptor,
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { Request, Response } from 'express';
@@ -11,16 +11,21 @@ import { Request, Response } from 'express';
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
+    // Obtenemos todos los datos del Request    
     const req: Request = context.switchToHttp().getRequest();
-    // const res: Response = context.switchToHttp().getResponse();
-    // console.log(res);
+    // console.log(req);
+
     Logger.debug(
-      `${context.getClass().name}.${context.getHandler().name}() : ${
-        req.method
-      } ${req.url}`,
+      `${context.getClass().name}.${context.getHandler().name}() : ${req.method
+      } : ${req.url}`,
       'LoggingInterceptor',
       false,
     );
+
+    // Obtenemos todos los datos de la Response   
+    // const res: Response = context.switchToHttp().getResponse();
+    // console.log(res);
+
     return next.handle();
   }
 }
