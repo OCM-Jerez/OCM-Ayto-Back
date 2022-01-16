@@ -30,7 +30,7 @@ import databaseConfig from './config/database.config';
     }),
     EntitiesModule,
     AuthModule,
-    LoginModule,
+    // LoginModule,
   ],
 })
 export class AppModule {
