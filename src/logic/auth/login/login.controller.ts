@@ -13,14 +13,7 @@ export class LoginController {
 
   // @Get(':login/:password')
   // async findOne(@Param('login') login: string, @Param('password') password: string): Promise<boolean> {
-  //   const existeLoginPassword = await this.loginService.findOne(login, password);
-  //   console.log('existeLoginPassword', existeLoginPassword);
-  //   return existeLoginPassword
+  //   return await this.loginService.validateUser(login, password);
   // }
-
-  @Get(':login/:password')
-  async findOne(@Param('login') login: string, @Param('password') password: string): Promise<boolean> {
-    return await this.loginService.validateUser(login, password);
-  }
 
 }

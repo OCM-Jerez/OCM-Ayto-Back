@@ -13,14 +13,14 @@ export class LoginService {
     private userRepository: Repository<User>
   ) { }
 
-  async validateUser(login: string, pass: string): Promise<any> {
-    const user = await this.userRepository.findOne({ login });
-    // if (!user) {
-    //   console.log('UnauthorizedException');
-    //   throw new UnauthorizedException('Invalid credentials!');
-    // }
-    return ((user && (await compare(pass, user.password))) ? true : false)
-  }
+  // async validateUser(login: string, pass: string): Promise<any> {
+  //   const user = await this.userRepository.findOne({ login });
+  //   // if (!user) {
+  //   //   console.log('UnauthorizedException');
+  //   //   throw new UnauthorizedException('Invalid credentials!');
+  //   // }
+  //   return ((user && (await compare(pass, user.password))) ? true : false)
+  // }
 
   // async validateUser(login: string, password: string): Promise<any> {
   //   // faltaria decodificar password
