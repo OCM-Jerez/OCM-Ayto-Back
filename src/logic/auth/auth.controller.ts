@@ -10,7 +10,6 @@ import { Auth, User } from 'src/common/decorators';
 import { User as UserEntity } from 'src/entities/user.entity';
 
 import { AuthGuard } from '@nestjs/passport';
-import { LoginDto } from './dtos/login.dto';
 
 // import { User, Auth } from 'src/common/decorators';
 // import { LoginDto } from './dtos/login.dto';
