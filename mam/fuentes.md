@@ -80,7 +80,7 @@ https://www.youtube.com/watch?v=kjr54SpV_eQ
 0:50 Comienza promoción curso @Anartz Mugika Ledo
 1:11 Termina promoción curso @Anartz Mugika Ledo
 1:12 Crea interface UserFindOne en user.service.ts
-1:18 El sitema de login funciona con el password encriptado.
+1:18 El sistema de login funciona con el password encriptado.
 1:18 crea user.decorator.ts
 1:19 Crea carpeta Common
 1:20 Crea user.decorator.ts
