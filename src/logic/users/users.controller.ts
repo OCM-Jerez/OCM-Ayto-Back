@@ -28,40 +28,10 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) { }
 
   // copiado de nestjs-myblog de Ruslan *********************
-
   @Get()
   async getMany() {
     const data = await this.usersService.getMany();
     return { data };
-  }
-
-  // @Post('register')
-  // async publicRegistration(@Body() dto: UserRegistrationDto) {
-  //   const data = await this.usersService.createOne({
-  //     ...dto,
-  //     roles: [AppRoles.AUTHOR],
-  //   });
-  //   return { message: 'User registered', data };
-  // }
-
-  @Post('/registerLogin')
-  // @ApiOperation({ title: 'Comprueba si existe el login' })
-  @ApiResponse({
-    status: 201,
-    description: 'Comprueba si existe el login',
-    type: User
-  })
-
-  // async registerLogin(@Req() req: Request, @Body() user: any): Promise<boolean> {
-
-  async registerLogin(@Body() user: any): Promise<boolean> {
-    console.log("Entro registerLogin");
-    const loginExist = await this.usersService.findByLogin(user.login);
-    console.log('loginExist: ', loginExist, user.login, user.password);
-    if (!loginExist) {
-      throw new HttpException('Usuario NO EXISTE', HttpStatus.NOT_FOUND);
-    }
-    return loginExist;
   }
 
   @Get(':id')
@@ -75,7 +45,6 @@ export class UsersController {
   //   action: 'create',
   //   resource: AppResource.USER,
   // })
-
   @Post()
   async createOne(@Body() dto: CreateUserDto) {
     const data = await this.usersService.createOne(dto);
@@ -87,8 +56,6 @@ export class UsersController {
   //   action: 'update',
   //   resource: AppResource.USER,
   // })
-
-
   @Put(':id')
   async editOne(
     @Param('id') id: number,
@@ -119,7 +86,6 @@ export class UsersController {
     @Param('id') id: number,) {
     const data = await this.usersService.deleteOne(id);
 
-
     // async deleteOne(@Param('id') id: number, @User() user: UserEntity) {
     //   let data;
 
@@ -132,80 +98,6 @@ export class UsersController {
     //   }
     return { message: 'User deleted', data };
   }
-
-
   // ***********************************************************
-
-
-
-
-
-
-
-  @Post()
-  create(@Body() createUserDto: CreateUserDto) {
-    console.log("user Post");
-    return this.usersService.create(createUserDto);
-  }
-
-  @Get()
-  findAll() {
-    return this.usersService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.usersService.findOne1(id);
-  }
-
-  @Put(':id')
-  async update(
-    @Param('id') id: string,
-    @Body() updateUserDto: EditUserDto,
-  ) {
-    return await this.usersService.update(id, updateUserDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.usersService.remove(id);
-  }
-
-
-
-
-  @Post('/passwordExist')
-  // @ApiOperation({ title: 'Comprueba si existe el login' })
-  @ApiResponse({
-    status: 201,
-    description: 'Comprueba si existe el login',
-    type: User
-  })
-
-  // async registerLogin(@Req() req: Request, @Body() user: any): Promise<boolean> {
-  async passwordExist(@Body() user: any): Promise<boolean> {
-    const loginExist = await this.usersService.findByPassword(user.password);
-    // console.log('loginExist: ', loginExist, user.login);
-    // if (!loginExist) {
-    //   throw new HttpException('Usuario NO EXISTE', HttpStatus.NOT_FOUND);
-    // }
-    return loginExist;
-  }
-
-  @Post('/register')
-  // @ApiOperation({ title: 'Save user' })
-  @ApiResponse({
-    status: 201,
-    description: 'Save user',
-    type: User
-  })
-
-  async register(@Req() req: Request, @Body() user: User): Promise<boolean> {
-    console.log('async register ', [user]);
-    const created = await this.usersService.save(user);
-    // HeaderUtil.addEntityCreatedHeaders(req.res, 'user', created.id);
-    return true
-  }
-
 
 }

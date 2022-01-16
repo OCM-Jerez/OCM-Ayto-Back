@@ -1,17 +1,19 @@
-import { Controller, Post, Get, UseGuards, Body, Param } from '@nestjs/common';
+import { Controller, Post, Get, UseGuards, Body, Param, HttpException, HttpStatus } from '@nestjs/common';
 
-import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
+import { ApiTags, ApiBearerAuth, ApiResponse } from '@nestjs/swagger';
 
 import { AuthService } from './auth.service';
+import { UsersService } from '../users/users.service';
+
 import { JwtAuthGuard, LocalAuthGuard } from './guards';
 import { Auth, User } from 'src/common/decorators';
 import { User as UserEntity } from 'src/entities/user.entity';
-// import { User, Auth } from 'src/common/decorators';
 
-
-// import { LoginDto } from './dtos/login.dto';
 import { AuthGuard } from '@nestjs/passport';
 import { LoginDto } from './dtos/login.dto';
+
+// import { User, Auth } from 'src/common/decorators';
+// import { LoginDto } from './dtos/login.dto';
 // import { LoginService } from './login/login.service';
 
 @ApiTags('Auth')
@@ -19,6 +21,7 @@ import { LoginDto } from './dtos/login.dto';
 export class AuthController {
     constructor(
         private readonly authService: AuthService,
+        private readonly usersService: UsersService,
     ) { }
 
     // login
@@ -26,6 +29,26 @@ export class AuthController {
     async findOne(@Param('login') login: string, @Param('password') password: string): Promise<boolean> {
         return await this.authService.validateUser(login, password);
     }
+
+    // registro nuevo user
+    @Post('/registerLogin')
+    // @ApiOperation({ title: 'Comprueba si existe el login' })
+    @ApiResponse({
+        status: 201,
+        description: 'Comprueba si existe el login',
+        type: User
+    })
+    // async registerLogin(@Req() req: Request, @Body() user: any): Promise<boolean> {
+    async registerLogin(@Body() user: any): Promise<boolean> {
+        console.log("Entro auth/registerLogin");
+        const loginExist = await this.usersService.findByLogin(user.login);
+        console.log('loginExist: ', loginExist, user.login, user.password);
+        if (!loginExist) {
+            throw new HttpException('Usuario NO EXISTE', HttpStatus.NOT_FOUND);
+        }
+        return loginExist;
+    }
+
 
     // @UseGuards(LocalAuthGuard)
     // @Post('login')
