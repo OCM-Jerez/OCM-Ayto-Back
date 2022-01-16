@@ -14,9 +14,8 @@ import { Request } from 'express';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { LoggingInterceptor } from 'src/common/interceptors/logging.interceptor';
 // https://dev.to/larswaechter/path-aliases-with-typescript-in-nodejs-4353?fbclid=IwAR0aBfgsVFija83iKdGKsU1WY0Ir4iJDXr1KNJwp40TeoxTyU-E9AxLsqKM
-// import { User } from '../../entities/user/entities';
 
-import { UserService } from './user.service';
+import { UsersService } from './users.service';
 import { CreateUserDto, EditUserDto } from './models';
 import { HttpException } from '@nestjs/common';
 import { User } from 'src/entities/';
@@ -25,20 +24,20 @@ import { User } from 'src/entities/';
 @Controller('user')
 @UseInterceptors(LoggingInterceptor)
 
-export class UserController {
-  constructor(private readonly userService: UserService) { }
+export class UsersController {
+  constructor(private readonly usersService: UsersService) { }
 
   // copiado de nestjs-myblog de Ruslan *********************
 
   @Get()
   async getMany() {
-    const data = await this.userService.getMany();
+    const data = await this.usersService.getMany();
     return { data };
   }
 
   // @Post('register')
   // async publicRegistration(@Body() dto: UserRegistrationDto) {
-  //   const data = await this.userService.createOne({
+  //   const data = await this.usersService.createOne({
   //     ...dto,
   //     roles: [AppRoles.AUTHOR],
   //   });
@@ -57,7 +56,7 @@ export class UserController {
 
   async registerLogin(@Body() user: any): Promise<boolean> {
     console.log("Entro registerLogin");
-    const loginExist = await this.userService.findByLogin(user.login);
+    const loginExist = await this.usersService.findByLogin(user.login);
     console.log('loginExist: ', loginExist, user.login, user.password);
     if (!loginExist) {
       throw new HttpException('Usuario NO EXISTE', HttpStatus.NOT_FOUND);
@@ -67,7 +66,7 @@ export class UserController {
 
   @Get(':id')
   async getOne(@Param('id') id: number) {
-    const data = await this.userService.getOne1(id);
+    const data = await this.usersService.getOne1(id);
     return { data };
   }
 
@@ -79,7 +78,7 @@ export class UserController {
 
   @Post()
   async createOne(@Body() dto: CreateUserDto) {
-    const data = await this.userService.createOne(dto);
+    const data = await this.usersService.createOne(dto);
     return { message: 'User created', data };
   }
 
@@ -96,16 +95,16 @@ export class UserController {
     @Body() dto: EditUserDto,
     // @User() user: UserEntity,
   ) {
-    const data = await this.userService.editOne(id, dto);
+    const data = await this.usersService.editOne(id, dto);
     // let data;
 
     // if (this.rolesBuilder.can(user.roles).updateAny(AppResource.USER).granted) {
     //   // esto es un admin
-    //   data = await this.userService.editOne(id, dto);
+    //   data = await this.usersService.editOne(id, dto);
     // } else {
     //   // esto es un author
     //   const { roles, ...rest } = dto;
-    // data = await this.userService.editOne(id, rest, user);
+    // data = await this.usersService.editOne(id, rest, user);
     // }
     return { message: 'User edited', data };
   }
@@ -118,7 +117,7 @@ export class UserController {
   @Delete(':id')
   async deleteOne(
     @Param('id') id: number,) {
-    const data = await this.userService.deleteOne(id);
+    const data = await this.usersService.deleteOne(id);
 
 
     // async deleteOne(@Param('id') id: number, @User() user: UserEntity) {
@@ -126,10 +125,10 @@ export class UserController {
 
     //   if (this.rolesBuilder.can(user.roles).updateAny(AppResource.USER).granted) {
     //     // esto es un admin
-    //     data = await this.userService.deleteOne(id);
+    //     data = await this.usersService.deleteOne(id);
     //   } else {
     //     // esto es un author
-    //     data = await this.userService.deleteOne(id, user);
+    //     data = await this.usersService.deleteOne(id, user);
     //   }
     return { message: 'User deleted', data };
   }
@@ -146,17 +145,17 @@ export class UserController {
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
     console.log("user Post");
-    return this.userService.create(createUserDto);
+    return this.usersService.create(createUserDto);
   }
 
   @Get()
   findAll() {
-    return this.userService.findAll();
+    return this.usersService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.userService.findOne1(id);
+    return this.usersService.findOne1(id);
   }
 
   @Put(':id')
@@ -164,12 +163,12 @@ export class UserController {
     @Param('id') id: string,
     @Body() updateUserDto: EditUserDto,
   ) {
-    return await this.userService.update(id, updateUserDto);
+    return await this.usersService.update(id, updateUserDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.userService.remove(id);
+    return this.usersService.remove(id);
   }
 
 
@@ -185,7 +184,7 @@ export class UserController {
 
   // async registerLogin(@Req() req: Request, @Body() user: any): Promise<boolean> {
   async passwordExist(@Body() user: any): Promise<boolean> {
-    const loginExist = await this.userService.findByPassword(user.password);
+    const loginExist = await this.usersService.findByPassword(user.password);
     // console.log('loginExist: ', loginExist, user.login);
     // if (!loginExist) {
     //   throw new HttpException('Usuario NO EXISTE', HttpStatus.NOT_FOUND);
@@ -203,7 +202,7 @@ export class UserController {
 
   async register(@Req() req: Request, @Body() user: User): Promise<boolean> {
     console.log('async register ', [user]);
-    const created = await this.userService.save(user);
+    const created = await this.usersService.save(user);
     // HeaderUtil.addEntityCreatedHeaders(req.res, 'user', created.id);
     return true
   }

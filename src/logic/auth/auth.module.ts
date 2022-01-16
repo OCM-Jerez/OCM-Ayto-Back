@@ -9,7 +9,7 @@ import { AuthController } from './auth.controller';
 // import { UserModule } from 'src/entities/user/user.module';
 import { LocalStrategy, JwtStrategy } from './strategies';
 import { JWT_SECRET } from 'src/config/constants';
-import { UserModule } from '../user/user.module';
+import { UsersModule } from '../users/users.module';
 
 @Module({
   imports: [
@@ -24,7 +24,7 @@ import { UserModule } from '../user/user.module';
         signOptions: { expiresIn: '24h' },
       }),
     }),
-    UserModule,
+    UsersModule,
   ],
   controllers: [AuthController],
   providers: [AuthService, LocalStrategy, JwtStrategy],

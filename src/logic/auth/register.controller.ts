@@ -11,9 +11,8 @@ import { Response, Request } from 'express';
 import { ApiBearerAuth, ApiResponse, ApiOperation } from '@nestjs/swagger';
 
 import { AuthService } from './auth.service';
-import { UserService } from '../user/user.service';
+import { UsersService } from '../users/users.service';
 import { User } from 'src/entities/user.entity';
-// import { UserService } from '../entities/user/user.service';
 // import { HeaderUtil } from '../client/header-util';
 
 @Controller('register')
@@ -24,7 +23,7 @@ export class RegisterController {
   logger = new Logger('AccountController');
 
   constructor(private readonly authService: AuthService,
-    private readonly userService: UserService) { }
+    private readonly usersService: UsersService) { }
 
   @Post('/register')
   // @ApiOperation({ title: 'Save user' })
@@ -36,7 +35,7 @@ export class RegisterController {
 
   async register(@Req() req: Request, @Body() user: User): Promise<boolean> {
     console.log(user);
-    const created = await this.userService.save(user);
+    const created = await this.usersService.save(user);
     // HeaderUtil.addEntityCreatedHeaders(req.res, 'user', created.id);
     return true
   }
@@ -50,7 +49,7 @@ export class RegisterController {
   })
 
   async registerLogin(@Req() req: Request, @Body() user: User): Promise<boolean> {
-    const loginExist = await this.userService.findByLogin(user.login);
+    const loginExist = await this.usersService.findByLogin(user.login);
 
     if (loginExist) {
       console.log(user.login);
@@ -72,7 +71,7 @@ export class RegisterController {
   // })
 
   // async registerEmail(@Req() req: Request, @Body() user: User): Promise<boolean> {
-  //   const emailExist = await this.userService.findByEmail(user.email);
+  //   const emailExist = await this.usersService.findByEmail(user.email);
 
   //   if (emailExist) {
   //     console.log(user.email);

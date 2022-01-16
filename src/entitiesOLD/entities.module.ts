@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { EconomicosModule } from 'src/logic/economicos/economicos.module';
 import { ProgramasModule } from 'src/logic/programas/programas.module';
-import { UserModule } from 'src/logic/user/user.module';
+import { UsersModule } from 'src/logic/users/users.module';
 
 import { BarriosModule } from './barrios/barrios.module';
 import { BibliotecaModule } from './biblioteca/biblioteca.module';
@@ -61,7 +61,7 @@ import { TemasModule } from './temas/temas.module';
     SindicatoModule,
     SubvencionesModule,
     TemasModule,
-    UserModule,
+    UsersModule,
   ],
 })
 export class EntitiesModule { }

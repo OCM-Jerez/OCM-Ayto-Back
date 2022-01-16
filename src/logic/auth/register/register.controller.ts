@@ -7,11 +7,10 @@ import { Response, Request } from 'express';
 // import { ApiBearerAuth, ApiUseTags, ApiResponse, ApiOperation } from '@nestjs/swagger';
 import { ApiBearerAuth, ApiResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { User } from 'src/entities/user.entity';
-import { UserService } from 'src/logic/user/user.service';
+import { UsersService } from 'src/logic/users/users.service';
 import { LoggingInterceptor } from 'src/common/interceptors/logging.interceptor';
 // import { AuthService } from '../../service/auth.service';
 // import { AuthService } from '../../service/auth.service';
-// import { UserService } from '../entities/user/user.service';
 // import { HeaderUtil } from '../../client/header-util';
 
 @ApiTags('register')
@@ -24,7 +23,7 @@ export class RegisterController {
 
     constructor(
         // private readonly authService: AuthService,
-        private readonly userService: UserService
+        private readonly usersService: UsersService
     ) { }
 
     @Post('/register')
@@ -36,7 +35,7 @@ export class RegisterController {
     })
 
     async register(@Req() req: Request, @Body() user: User): Promise<boolean> {
-        const created = await this.userService.save(user);
+        const created = await this.usersService.save(user);
         // HeaderUtil.addEntityCreatedHeaders(req.res, 'user', created.id);
         return true
     }
@@ -50,7 +49,7 @@ export class RegisterController {
     })
 
     async registerLogin(@Req() req: Request, @Body() user: User): Promise<boolean> {
-        const loginExist = await this.userService.findByLogin(user.login);
+        const loginExist = await this.usersService.findByLogin(user.login);
 
         if (loginExist) {
             console.log(user.login);
@@ -72,7 +71,7 @@ export class RegisterController {
     // })
 
     // async registerEmail(@Req() req: Request, @Body() user: User): Promise<boolean> {
-    //     const emailExist = await this.userService.findByEmail(user.email);
+    //     const emailExist = await this.usersService.findByEmail(user.email);
 
     //     if (emailExist) {
     //         console.log(user.email);

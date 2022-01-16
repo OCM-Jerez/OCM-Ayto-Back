@@ -74,8 +74,8 @@ https://www.youtube.com/watch?v=kjr54SpV_eQ
 0:28 Crea carpeta auth/strategies
 0:30 Configura localstrategie.ts
 0:32 Configura auth.service.ts
-0:34 crea findOne en userService.ts
-0:40 createQueryBuilder en userService.ts
+0:34 crea findOne en usersService.ts
+0:40 createQueryBuilder en usersService.ts
 0:46 AuthGuard
 0:50 Comienza promoción curso @Anartz Mugika Ledo
 1:11 Termina promoción curso @Anartz Mugika Ledo

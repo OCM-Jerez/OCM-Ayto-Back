@@ -16,7 +16,7 @@ export interface UserFindOne {
 }
 
 @Injectable()
-export class UserService {
+export class UsersService {
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
