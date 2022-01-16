@@ -27,3 +27,33 @@
     //   return null;
     // }
 // }
+
+
+// export class LoginController
+  // @Get(':login/:password')
+  // async findOne(@Param('login') login: string, @Param('password') password: string): Promise<boolean> {
+  //   const existeLoginPassword = await this.loginService.findOne(login, password);
+  //   console.log('existeLoginPassword', existeLoginPassword);
+  //   return existeLoginPassword
+  // }
+
+//export class AuthService
+    // async validateUser(email: string, pass: string): Promise<any> {
+    //     const user = await this.usersService.findOne({ email });
+    //     if (user && (await compare(pass, user.password))) {
+    //         const { password, ...rest } = user;
+    //         return rest;
+    //     }
+    //     return null;
+    // }
+
+
+    // export class AuthService 
+    
+    // async login(user: User) {
+    //     const payload = { login: user.login, email: user.email, id: user.id };
+    //     return {
+    //         user,
+    //         access_token: this.jwtService.sign(payload),
+    //     };
+    // }
