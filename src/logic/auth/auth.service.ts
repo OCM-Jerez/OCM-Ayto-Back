@@ -17,7 +17,20 @@ export class AuthService {
 
     async validateUser(login: string, pass: string): Promise<any> {
         const user = await this.userRepository.findOne({ login });
-        return ((user && (await compare(pass, user.password))) ? true : false)
+        // return ((user && (await compare(pass, user.password))) ? true : false)
+
+        // Hay que devolver el token en el payload
+        let response = {}
+        if (user && (await compare(pass, user.password))) {
+            const payload = { login };
+            const accessToken = this.jwtService.sign(payload);
+            response = {
+                login,
+                accessToken,
+            }
+        }
+        // console.log('Auth.service response: ', response);
+        return response;
     }
 
 }
