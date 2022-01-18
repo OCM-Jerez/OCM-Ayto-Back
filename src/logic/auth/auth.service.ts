@@ -6,6 +6,7 @@ import { Repository } from 'typeorm';
 import { compare } from 'bcryptjs';
 
 import { User } from 'src/entities/user.entity';
+import { IResponseLogin } from './models/auth.interface';
 
 @Injectable()
 export class AuthService {
@@ -15,22 +16,22 @@ export class AuthService {
         private readonly jwtService: JwtService,
     ) { }
 
-    async validateUser(login: string, pass: string): Promise<any> {
+    async validateUser(login: string, pass: string): Promise<IResponseLogin> {
         const user = await this.userRepository.findOne({ login });
         // return ((user && (await compare(pass, user.password))) ? true : false)
 
         // Hay que devolver el token en el payload
-        let response = {}
+
         if (user && (await compare(pass, user.password))) {
-            const payload = { login };
-            const accessToken = this.jwtService.sign(payload);
-            response = {
-                login,
-                accessToken,
+
+            const token = this.jwtService.sign({ íd: user.id });
+            return {
+                user: login,
+                token,
             }
         }
         // console.log('Auth.service response: ', response);
-        return response;
+        return null;
     }
 
 }

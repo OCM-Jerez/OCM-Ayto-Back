@@ -10,6 +10,7 @@ import { Auth, User } from 'src/common/decorators';
 import { User as UserEntity } from 'src/entities/user.entity';
 
 import { AuthGuard } from '@nestjs/passport';
+import { IResponseLogin } from './models/auth.interface';
 
 // import { User, Auth } from 'src/common/decorators';
 // import { LoginDto } from './dtos/login.dto';
@@ -25,7 +26,7 @@ export class AuthController {
 
     // login
     @Get(':login/:password')
-    async findOne(@Param('login') login: string, @Param('password') password: string): Promise<boolean> {
+    async findOne(@Param('login') login: string, @Param('password') password: string): Promise<IResponseLogin> {
         return await this.authService.validateUser(login, password);
     }
 

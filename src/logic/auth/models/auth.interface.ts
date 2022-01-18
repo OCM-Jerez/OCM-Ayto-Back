@@ -1,6 +1,6 @@
-export interface ILogin {
+export interface IResponseLogin {
   user: string;
-  password: string;
+  token: string;
 }
 
 export interface IRSLogin {

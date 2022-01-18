@@ -17,17 +17,17 @@ import { ProgramasService } from './programas.service';
 @ApiTags('programas')
 @Controller('programas')
 export class ProgramasController {
-  constructor(private readonly programasService: ProgramasService) { }
+  constructor(private readonly _programasService: ProgramasService) { }
 
   @Post()
   async create(@Body() createProgramaDto: CreateProgramaDto): Promise<Programa[]> {
-    await this.programasService.create(createProgramaDto);
-    return await this.programasService.findAll();
+    await this._programasService.create(createProgramaDto);
+    return await this._programasService.findAll();
   }
 
   @Get()
   async findAll(): Promise<void | Programa[]> {
-    return await this.programasService.findAll();
+    return await this._programasService.findAll();
   }
 
   // @Get()
@@ -41,7 +41,7 @@ export class ProgramasController {
 
   @Get(':id')
   async findOne(@Param('id') id: string) {
-    return await this.programasService.findOne(id);
+    return await this._programasService.findOne(id);
   }
 
   @Put(':id')
@@ -49,13 +49,13 @@ export class ProgramasController {
     @Param('id') id: string,
     @Body() updateProgramaDto: UpdateProgramaDto,
   ) {
-    await this.programasService.update(id, updateProgramaDto);
-    return await this.programasService.findAll();
+    await this._programasService.update(id, updateProgramaDto);
+    return await this._programasService.findAll();
   }
 
   @Delete(':id')
   async delete(@Param('id') id: string) {
-    await this.programasService.delete(id);
-    return await this.programasService.findAll();
+    await this._programasService.delete(id);
+    return await this._programasService.findAll();
   }
 }
