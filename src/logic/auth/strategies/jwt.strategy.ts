@@ -17,10 +17,10 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         });
     }
 
-    async validate(payload: any) {
-        // console.log('payload', payload);
-        const { id: id } = payload;
-        // console.log('payload destructurado', id);
-        return await this.usersService.getOne(id);
-    }
+    // async validate(payload: any) {
+    //     // console.log('payload', payload);
+    //     const { id: id } = payload;
+    //     // console.log('payload destructurado', id);
+    //     return await this.usersService.getOne(id);
+    // }
 }

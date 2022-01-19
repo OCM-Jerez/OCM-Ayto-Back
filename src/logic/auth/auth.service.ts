@@ -16,14 +16,11 @@ export class AuthService {
         private readonly jwtService: JwtService,
     ) { }
 
-    async validateUser(login: string, pass: string): Promise<IResponseLogin> {
+    async login(login: string, pass: string): Promise<IResponseLogin> {
         const user = await this.userRepository.findOne({ login });
         // return ((user && (await compare(pass, user.password))) ? true : false)
-
         // Hay que devolver el token en el payload
-
         if (user && (await compare(pass, user.password))) {
-
             const token = this.jwtService.sign({ íd: user.id });
             return {
                 user: login,
