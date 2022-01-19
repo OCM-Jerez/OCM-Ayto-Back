@@ -2,7 +2,6 @@ import { Controller, Post, Get, Body, Param, HttpException, HttpStatus } from '@
 
 import { ApiTags } from '@nestjs/swagger';
 
-import { AuthService } from './auth.service';
 import { UsersService } from '../users/users.service';
 
 import { IResponseLogin } from './models/auth.interface';
@@ -10,14 +9,13 @@ import { IResponseLogin } from './models/auth.interface';
 @Controller('auth')
 export class AuthController {
     constructor(
-        private readonly authService: AuthService,
         private readonly usersService: UsersService,
     ) { }
 
     // Login
     @Get(':login/:password')
     async login(@Param('login') login: string, @Param('password') password: string): Promise<IResponseLogin> {
-        return await this.authService.login(login, password);
+        return await this.usersService.login(login, password);
     }
 
     // Registro nuevo user
