@@ -1,9 +1,6 @@
 import { Controller, Post, Get, Body, Param, HttpException, HttpStatus } from '@nestjs/common';
-
 import { ApiTags } from '@nestjs/swagger';
-
 import { UsersService } from '../users/users.service';
-
 import { IResponseLogin } from './models/auth.interface';
 @ApiTags('Auth')
 @Controller('auth')
