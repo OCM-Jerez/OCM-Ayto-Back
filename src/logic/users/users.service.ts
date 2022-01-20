@@ -8,7 +8,7 @@ import { compare } from 'bcryptjs';
 
 import { CreateUserDto, EditUserDto } from './models';
 import { User } from 'src/entities/user.entity';
-import { IResponseLogin } from '../auth/models/auth.interface';
+import { IResponseLogin, IloginUser } from '../auth/models/auth.interface';
 
 
 // import { User } from './entities/user.entity';
@@ -47,27 +47,31 @@ export class UsersService {
   }
 
   async createOne(dto: CreateUserDto) {
-    // const userExist = await this.userRepository.findOne({ email: dto.email });
-    const userExist = await this.userRepository.findOne({ login: dto.login });
+    // const userExist = await this.userRepository.findOne({ login: dto.login });
 
-    if (userExist)
-      throw new BadRequestException('MAM User already registered');
+    // if (userExist)
+    // throw new BadRequestException('MAM User already registered');
     const newUser = this.userRepository.create(dto);
     const user = await this.userRepository.save(newUser);
     delete user.password;
     return user;
   }
 
-  // async findOne(data: UserFindOne) {
-  //   return await this.userRepository
-  //     .createQueryBuilder('user')
-  //     .where(data)
-  //     .addSelect('user.password')
-  //     .getOne();
+  // async findByLogin(login: string): Promise<boolean> {
+  //   return (await this.userRepository.findOne({ where: { login: login } }) ? true : false);
   // }
 
-  async findByLogin(login: string): Promise<boolean> {
-    return (await this.userRepository.findOne({ where: { login: login } }) ? true : false);
+  async findByLogin(login: string): Promise<IloginUser> {
+    const user = await this.userRepository.findOne({ where: { login: login } });
+    if (user) {
+      return {
+        login: login,
+      }
+    } else {
+      return {
+        login: '',
+      }
+    }
   }
-
 }
+
