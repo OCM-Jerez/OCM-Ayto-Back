@@ -281,7 +281,7 @@ liquidacion]]></comment>
 		<entity schema="presupuesto" name="programa" color="C7F4BE" x="1328" y="464" />
 		<entity schema="presupuesto" name="subconcepto_gasto" color="3986C1" x="1376" y="1008" />
 		<entity schema="presupuesto" name="subconcepto_ingreso" color="3986C1" x="544" y="464" />
-		<entity schema="presupuesto" name="subprograma" color="3986C1" x="1376" y="608" />
+		<entity schema="presupuesto" name="subprograma" color="3986C1" x="1392" y="592" />
 		<group name="INGRESO" color="C4E0F9" >
 			<entity schema="presupuesto" name="presupuesto_ingreso" />
 			<entity schema="presupuesto" name="economico_ingreso(Partida) " />
